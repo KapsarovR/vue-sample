@@ -24,7 +24,7 @@
 
       <div class="conten">
         <div class="conten-left">
-            <img src="src/images/Happy monday.jpg" alt="">
+            <img src="@/images/Happy monday.jpg" alt="">
         </div>
         <div class="conten-right">
             <h1 class="conten-text">My kind of life</h1>
@@ -60,7 +60,7 @@
             <p>Kapsar , Copyright © 2022</p>
         </div>
     </footer>
-  </div>
+  </div> 
 </template>
 
 <script>
@@ -72,7 +72,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="css">
 body{
     margin: 0;
 }
@@ -168,5 +168,31 @@ body{
     font-size: 15px;
   }
   /* End */
+  @media only screen and (max-width: 425px) {
+    .hover-1 h2{
+        font-size: 2rem;
+    }
+    .conten-left img {
+        width: 100%;
+        display: block;
+        height: 100%;
+    }
+    .conten-right h1 {
+        padding: 0;
+        font-size: 25px;
+    }
+    .conten-right ol{
+        font-size: 20px;
+        margin: 0;
+        padding-top: 2%;
+    }
+    .conten-right ul {
+      margin: 0;
+      font-size: 15px;
+      padding-top: 2%;
+    }
+
+  }
+  /*Mobile code */
 
 </style>
