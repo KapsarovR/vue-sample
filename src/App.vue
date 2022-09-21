@@ -1,24 +1,24 @@
 <template>
   <div id="app">
     <nav class="nav-bar">
-      <ul>
-        <li>
-          <a href="#">Home</a>
+      <ul class="menu">
+        <li class="menu-one">
+          <a class="menu-inner" href="#">Home</a>
         </li>
-        <li>
-          <a href="#">About</a>
+        <li class="menu-one">
+          <a class="menu-inner" href="#">About</a>
         </li>
-        <li>
-          <a href="#">Contact</a>
+        <li class="menu-one">
+          <a class="menu-inner" href="#">Contact</a>
         </li>
       </ul>
     </nav>
 
 
 
-    <header>
-      <div class="hover-1">
-        <h2>Happy Monday</h2>
+    <header class="title">
+      <div class="title-content">
+        <h2 class="title-inner">Happy Monday</h2>
       </div>
     </header>
 
@@ -26,41 +26,49 @@
 
     <div class="content">
       <div class="content-left">
-        <img src="@/images/Happy monday.jpg" alt="">
+        <img src="@/images/Happy monday.jpg" class="happy" alt="">
       </div>
       <div class="content-right">
         <h1 class="content-text">My kind of life</h1>
-        <ol>
-          <li>Learn</li>
+        <ol class="content-inner">
+          <li class="option">Learn</li>
         </ol>
-        <ul>
-          <li>Everyday</li>
-          <li>Everywhere</li>
-          <li>Anytime</li>
+        <ul class="content-menu">
+          <li class="option">Everyday</li>
+          <li class="option">Everywhere</li>
+          <li class="option">Anytime</li>
         </ul>
-        <ol>
-          <li>Live</li>
+        <ol class="content-inner">
+          <li class="option">Live</li>
         </ol>
-        <ul>
-          <li>Full</li>
-          <li>No regreats</li>
-          <li>As you want</li>
+        <ul class="content-menu">
+          <li class="option">Full</li>
+          <li class="option">No regreats</li>
+          <li class="option">As you want</li>
         </ul>
-        <ol>
-          <li>Love</li>
+        <ol class="content-inner">
+          <li class="option">Love</li>
         </ol>
-        <ul>
-          <li>Deep</li>
-          <li>Purely</li>
-          <li>Life</li>
+        <ul class="content-menu">
+          <li class="option">Deep</li>
+          <li class="option">Purely</li>
+          <li class="option">Life</li>
+        </ul>
+        <ol class="content-inner">
+          <li class="option">Sport</li>
+        </ol>
+        <ul class="content-menu">
+          <li class="option">Nba</li>
+          <li class="option">Football</li>
+          <li class="option">Handball</li>
         </ul>
       </div>
     </div>
 
 
-    <footer>
+    <footer class="end-content">
       <div class="end">
-        <p>Kapsar , Copyright © 2022</p>
+        <p class="end-title">Kapsar , Copyright © 2022</p>
       </div>
     </footer>
   </div>
@@ -81,63 +89,46 @@ body {
 }
 
 .nav-bar {
-  background: rgba(255, 99, 71, 0.8);
+  background: #ff6347cc;
   width: 100%;
   height: 50px;
   margin: 0;
 
 }
 
-.nav-bar nav ul {
+.menu {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.nav-bar nav ul li {
+.menu-one {
   display: inline-block;
   font-size: 20px;
   margin: 10px;
 }
 
-.nav-bar nav a {
+.menu-inner {
   text-decoration: none;
   color: white;
 }
 
 /* Nav bar */
 
-.hover-1 {
-  background: rgba(97, 155, 106, 0.4);
+.title-content {
+  background: #619b6a66;
   margin: 0;
-  display: grid;
+  display: flex;
   gap: 20px;
   place-content: center;
 }
 
-.hover-1 h2 {
-  --s: 0.1em;
-  /* the thickness of the line */
-  --c: #1095c1;
-  /* the color */
-
-  padding-bottom: var(--s);
-  background:
-    linear-gradient(var(--c) 0 0) no-repeat calc(var(--_p, 0%) - 20%) 100%/calc(var(--_p, 0%) + 10%) var(--s);
-  transition: .3s, background-position .4s .3s;
-}
-
-.hover-1 h2:hover {
-  --_p: 70%;
-  color: var(--c);
-  transition: .25s .5s, background-position .4s cubic-bezier(0, 1.25, 1, 1.8);
-}
-
-.hover-1 h2 {
-  font-family: system-ui, sans-serif;
-  font-size: 3rem;
-  cursor: pointer;
+.title-inner {
+  font-size: 25px;
+  font-weight: 600;
   color: white;
+  line-height: normal;
+  letter-spacing: 5px;
 }
 
 /* Hover */
@@ -150,35 +141,39 @@ body {
   width: 50%;
 }
 
-.content-left img {
+.happy {
   width: 100%;
   display: block;
+  height: 100%;
+  /* object-fit: contain; */
 }
 
-.content-right h1 {
+.content-text {
   text-align: center;
-  padding-top: 10%;
 }
 
 .content-right {
   width: 50%;
-  background-color: tomato;
+  background-color: #ff6347;
 }
 
-.content-right ol {
-  margin-left: 40%;
-  font-size: 20px;
+.content-inner {
+  font-size: 25px;
 }
 
-.content-right ul {
-  margin-left: 45%;
-  font-size: 20px;
+.content-menu {
+  font-size: 18px;
+}
+
+.option {
+  width: 25%;
+  margin: auto;
 }
 
 /* Conten end */
 
 .end {
-  background-color: rgba(255, 99, 71, 0.8);
+  background-color: #ff6347cc;
   text-align: center;
   padding: 0.5%;
   color: black;
@@ -186,35 +181,26 @@ body {
 }
 
 /* End */
-@media only screen and (max-width: 425px) {
-  .hover-1 h2 {
-    font-size: 2rem;
+@media only screen and (max-width: 768px) {}
+
+@media screen and (max-width: 425px) {
+  .menu {
+    text-align: center;
   }
 
-  .content-left img {
-    width: 100%;
-    display: block;
-    height: 100%;
-  }
-
-  .content-right h1 {
-    padding: 0;
-    font-size: 25px;
-  }
-
-  .content-right ol {
+  .content-text {
     font-size: 20px;
-    margin: 0;
-    padding-top: 2%;
   }
 
-  .content-right ul {
-    margin: 0;
-    font-size: 15px;
-    padding-top: 2%;
+  .option {
+    width: 60%;
+  }
+  .content-inner{
+    font-size: 18px;
   }
 
+  .content-menu{
+    font-size: 14px;
+  }
 }
-
-/*Mobile code */
 </style>
