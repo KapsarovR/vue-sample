@@ -1,75 +1,97 @@
 <template>
   <div id="app">
-    <nav class="nav-bar">
-      <ul class="menu">
-        <li class="menu-one">
-          <a class="menu-inner" href="#">Home</a>
-        </li>
-        <li class="menu-one">
-          <a class="menu-inner" href="#">About</a>
-        </li>
-        <li class="menu-one">
-          <a class="menu-inner" href="#">Contact</a>
-        </li>
-      </ul>
-    </nav>
-
-
-
-    <header class="title">
-      <div class="title-content">
-        <h2 class="title-inner">Happy Monday</h2>
+    <div class="header">
+      <div class="logo">
+        <img src="@/images/Git-Icon-Black.png" class="image-git" alt="">
       </div>
-    </header>
+      <nav class="nav-bar">
+        <ul class="menu">
+          <li class="menu-one">
+            <a class="menu-inner" href="#">Home</a>
+          </li>
+          <li class="menu-one">
+            <a class="menu-inner" href="#">About</a>
+          </li>
+          <li class="menu-one">
+            <a class="menu-inner" href="#">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
-
-
-    <div class="content">
+    <div class="section-one">
       <div class="content-left">
-        <img src="@/images/Happy monday.jpg" class="happy" alt="">
+        <img src="@/images/Happy monday.jpg" class="image-happy" alt="">
       </div>
       <div class="content-right">
         <h1 class="content-text">My kind of life</h1>
         <ol class="content-inner">
           <li class="option">Learn</li>
-        </ol>
-        <ul class="content-menu">
-          <li class="option">Everyday</li>
-          <li class="option">Everywhere</li>
-          <li class="option">Anytime</li>
-        </ul>
-        <ol class="content-inner">
+          <!-- </ol> -->
+          <ul class="content-menu">
+            <li class="option">Everyday</li>
+            <li class="option">Everywhere</li>
+            <li class="option">Anytime</li>
+          </ul>
+          <!-- <ol class="content-inner"> -->
           <li class="option">Live</li>
-        </ol>
-        <ul class="content-menu">
-          <li class="option">Full</li>
-          <li class="option">No regreats</li>
-          <li class="option">As you want</li>
-        </ul>
-        <ol class="content-inner">
+          <!-- </ol> -->
+          <ul class="content-menu">
+            <li class="option">Full</li>
+            <li class="option">No regreats</li>
+            <li class="option">As you want</li>
+          </ul>
+          <!-- <ol class="content-inner"> -->
           <li class="option">Love</li>
-        </ol>
-        <ul class="content-menu">
-          <li class="option">Deep</li>
-          <li class="option">Purely</li>
-          <li class="option">Life</li>
-        </ul>
-        <ol class="content-inner">
+          <!-- </ol> -->
+          <ul class="content-menu">
+            <li class="option">Deep</li>
+            <li class="option">Purely</li>
+            <li class="option">Life</li>
+          </ul>
+          <!-- <ol class="content-inner"> -->
           <li class="option">Sport</li>
+          <!-- </ol> -->
+          <ul class="content-menu">
+            <li class="option">Nba</li>
+            <li class="option">Football</li>
+            <li class="option">Handball</li>
+          </ul>
         </ol>
-        <ul class="content-menu">
-          <li class="option">Nba</li>
-          <li class="option">Football</li>
-          <li class="option">Handball</li>
-        </ul>
       </div>
     </div>
 
 
-    <footer class="end-content">
-      <div class="end">
-        <p class="end-title">Kapsar , Copyright © 2022</p>
+    <div class="section-two">
+      <div class="cube-one">
+        <p class="cube-title">Paragraph</p>
       </div>
+      <div class="cube-two">
+        <p class="cube-title">Paragraph</p>
+      </div>
+      <div class="cube-three">
+        <p class="cube-title">Paragraph</p>
+      </div>
+      <div class="cube-four">
+        <p class="cube-title">Paragraph</p>
+      </div>
+    </div>
+
+    <div class="section-three">
+      <div class="cube-five">
+        <p class="cube-title">Paragraph</p>
+      </div>
+      <div class="cube-six">
+        <p class="cube-title">Paragraph</p>
+      </div>
+      <div class="cube-seven">
+        <p class="cube-title">Paragraph</p>
+      </div>
+    </div>
+
+
+    <footer class="footer">
+      <p class="footer-title">Kapsar , Copyright © 2022</p>
     </footer>
   </div>
 </template>
@@ -84,22 +106,22 @@ export default {
 </script>
 
 <style lang="css">
-body {
-  margin: 0;
-}
-
-.nav-bar {
+.header {
+  display: flex;
+  justify-content: space-between;
   background: #ff6347cc;
   width: 100%;
   height: 50px;
   margin: 0;
+}
 
+.image-git {
+  width: 100%;
+  height: 100%;
 }
 
 .menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  margin: auto;
 }
 
 .menu-one {
@@ -112,8 +134,6 @@ body {
   text-decoration: none;
   color: white;
 }
-
-/* Nav bar */
 
 .title-content {
   background: #619b6a66;
@@ -131,9 +151,7 @@ body {
   letter-spacing: 5px;
 }
 
-/* Hover */
-
-.content {
+.section-one {
   display: flex;
 }
 
@@ -141,7 +159,7 @@ body {
   width: 50%;
 }
 
-.happy {
+.image-happy {
   width: 100%;
   display: block;
   height: 100%;
@@ -159,48 +177,150 @@ body {
 
 .content-inner {
   font-size: 25px;
+  padding: 1%;
 }
 
 .content-menu {
-  font-size: 18px;
+  font-size: 25px;
 }
 
 .option {
   width: 25%;
   margin: auto;
+  padding: 3px;
 }
 
-/* Conten end */
+.section-two,
+.section-three {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-evenly;
+}
 
-.end {
+.cube-one,
+.cube-two,
+.cube-three,
+.cube-four {
+  padding: 7%;
+  margin: 2%;
+  border: 1px solid black;
+}
+
+.cube-five,
+.cube-six,
+.cube-seven {
+  padding: 7%;
+  margin: 2%;
+  border: 1px solid black;
+}
+
+.cube-one {
+  background: red;
+}
+
+.cube-two {
+  background: #ff6347;
+}
+
+.cube-three {
+  background-color: aqua;
+}
+
+.cube-four {
+  background: darkslateblue;
+}
+
+.cube-five {
+  background: chartreuse;
+}
+
+.cube-six {
+  background: green;
+}
+
+.cube-seven {
+  background: blue;
+}
+
+.cube-title {
+  text-align: center;
+  color: white;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
   background-color: #ff6347cc;
   text-align: center;
-  padding: 0.5%;
   color: black;
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 700;
 }
 
-/* End */
-@media only screen and (max-width: 768px) {}
+@media only screen and (max-width: 768px) {
+  .content-menu {
+    font-size: 16px;
+  }
+
+  .cube-one,
+  .cube-two,
+  .cube-three,
+  .cube-four {
+    padding: 5%;
+    margin: 2%;
+    border: 1px solid black;
+  }
+
+  .cube-five,
+  .cube-six,
+  .cube-seven {
+    padding: 5%;
+    margin: 2%;
+    border: 1px solid black;
+  }
+}
 
 @media screen and (max-width: 425px) {
-  .menu {
-    text-align: center;
+  .header {
+    height: 40px;
+  }
+
+  .section-one {
+    display: flex;
+    flex-flow: column;
+  }
+
+  .section-two,
+  .section-three {
+    display: block;
+  }
+
+
+  .content-left,
+  .content-right {
+    width: 100%;
   }
 
   .content-text {
-    font-size: 20px;
+    font-size: 25px;
   }
 
   .option {
-    width: 60%;
-  }
-  .content-inner{
-    font-size: 18px;
+    width: 40%;
   }
 
-  .content-menu{
-    font-size: 14px;
+  .content-inner {
+    font-size: 20px;
+  }
+
+  .content-menu {
+    font-size: 15px;
+  }
+
+  .footer {
+    font-size: 13px;
+    font-weight: 700;
   }
 }
 </style>
