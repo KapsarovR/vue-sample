@@ -2,7 +2,7 @@
   <div id="app">
     <div class="header">
       <div class="logo">
-        <img src="@/images/Git-Icon-Black.png" class="image-git" alt="">
+        <img src="@/images/Git-Icon-Black.png" class="image" alt="" />
       </div>
       <nav class="nav-bar">
         <ul class="menu">
@@ -21,37 +21,30 @@
 
     <div class="section-one">
       <div class="content-left">
-        <img src="@/images/Happy monday.jpg" class="image-happy" alt="">
+        <img src="@/images/Happy monday.jpg" class="image" alt="" />
       </div>
       <div class="content-right">
         <h1 class="content-text">My kind of life</h1>
         <ol class="content-inner">
           <li class="option">Learn</li>
-          <!-- </ol> -->
           <ul class="content-menu">
             <li class="option">Everyday</li>
             <li class="option">Everywhere</li>
             <li class="option">Anytime</li>
           </ul>
-          <!-- <ol class="content-inner"> -->
           <li class="option">Live</li>
-          <!-- </ol> -->
           <ul class="content-menu">
             <li class="option">Full</li>
             <li class="option">No regreats</li>
             <li class="option">As you want</li>
           </ul>
-          <!-- <ol class="content-inner"> -->
           <li class="option">Love</li>
-          <!-- </ol> -->
           <ul class="content-menu">
             <li class="option">Deep</li>
             <li class="option">Purely</li>
             <li class="option">Life</li>
           </ul>
-          <!-- <ol class="content-inner"> -->
           <li class="option">Sport</li>
-          <!-- </ol> -->
           <ul class="content-menu">
             <li class="option">Nba</li>
             <li class="option">Football</li>
@@ -61,34 +54,60 @@
       </div>
     </div>
 
-
     <div class="section-two">
-      <div class="cube-one">
-        <p class="cube-title">Paragraph</p>
+      <div class="cube">
+        <img src="@/images/Card.png" class="images" alt="" />
+        <div class="cube-title">
+          <h2>Title</h2>
+        </div>
+        <div class="cube-description">
+          <p>Lorem ipsum dolor sit amet</p>
+        </div>
       </div>
-      <div class="cube-two">
-        <p class="cube-title">Paragraph</p>
+      <div class="cube">
+        <img src="@/images/Card.png" class="images" alt="" />
+        <div class="cube-title">
+          <h2>Title</h2>
+        </div>
+        <div class="cube-description">
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi
+          </p>
+        </div>
       </div>
-      <div class="cube-three">
-        <p class="cube-title">Paragraph</p>
+      <div class="cube">
+        <img src="@/images/Card.png" class="images" alt="" />
+        <div class="cube-title">
+          <h2>Title</h2>
+        </div>
+        <div class="cube-description">
+          <p>Lorem ipsum dolor sit amet, consectetur</p>
+        </div>
       </div>
-      <div class="cube-four">
-        <p class="cube-title">Paragraph</p>
+      <div class="cube">
+        <img src="@/images/Card.png" class="images" alt="" />
+        <div class="cube-title">
+          <h2>Title</h2>
+        </div>
+        <div class="cube-description">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui omnis
+          </p>
+        </div>
       </div>
     </div>
 
     <div class="section-three">
-      <div class="cube-five">
-        <p class="cube-title">Paragraph</p>
+      <div class="cube">
+        <h2 class="cube-title">Title</h2>
       </div>
-      <div class="cube-six">
-        <p class="cube-title">Paragraph</p>
+      <div class="cube">
+        <h2 class="cube-title">Title</h2>
       </div>
-      <div class="cube-seven">
-        <p class="cube-title">Paragraph</p>
+      <div class="cube">
+        <h2 class="cube-title">Title</h2>
       </div>
     </div>
-
 
     <footer class="footer">
       <p class="footer-title">Kapsar , Copyright © 2022</p>
@@ -98,26 +117,25 @@
 
 <script>
 export default {
-  name: 'App',
-  components: {
-
-  }
-}
+  name: "App",
+  components: {},
+};
 </script>
 
 <style lang="css">
+body {
+  margin: 0;
+}
+h2,
+p {
+  margin: 0;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   background: #ff6347cc;
-  width: 100%;
   height: 50px;
-  margin: 0;
-}
-
-.image-git {
-  width: 100%;
-  height: 100%;
 }
 
 .menu {
@@ -132,7 +150,7 @@ export default {
 
 .menu-inner {
   text-decoration: none;
-  color: white;
+  color: #ffffff;
 }
 
 .title-content {
@@ -146,7 +164,7 @@ export default {
 .title-inner {
   font-size: 25px;
   font-weight: 600;
-  color: white;
+  color: #ffffff;
   line-height: normal;
   letter-spacing: 5px;
 }
@@ -159,11 +177,9 @@ export default {
   width: 50%;
 }
 
-.image-happy {
+.image {
   width: 100%;
-  display: block;
   height: 100%;
-  /* object-fit: contain; */
 }
 
 .content-text {
@@ -190,62 +206,63 @@ export default {
   padding: 3px;
 }
 
+.cube {
+  height: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-two > .cube {
+  width: 25%;
+  position: relative;
+}
+
+.cube > .images {
+  width: 100%;
+  height: 400px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.section-three > .cube {
+  width: 33.3%;
+}
+
+.section-two > .cube > .cube-title {
+  position: relative;
+  color: #ffffff;
+}
+
+.cube-description {
+  position: relative;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.section-three > .cube > .cube-title {
+  text-align: center;
+  color: #ffffff;
+}
+
 .section-two,
 .section-three {
   display: flex;
-  width: 100%;
-  height: 100%;
-  justify-content: space-evenly;
 }
 
-.cube-one,
-.cube-two,
-.cube-three,
-.cube-four {
-  padding: 7%;
-  margin: 2%;
-  border: 1px solid black;
+.section-three > .cube:nth-child(1) {
+  background: #7fff00;
 }
 
-.cube-five,
-.cube-six,
-.cube-seven {
-  padding: 7%;
-  margin: 2%;
-  border: 1px solid black;
+.section-three > .cube:nth-child(2) {
+  background: #008000;
 }
 
-.cube-one {
-  background: red;
-}
-
-.cube-two {
-  background: #ff6347;
-}
-
-.cube-three {
-  background-color: aqua;
-}
-
-.cube-four {
-  background: darkslateblue;
-}
-
-.cube-five {
-  background: chartreuse;
-}
-
-.cube-six {
-  background: green;
-}
-
-.cube-seven {
-  background: blue;
-}
-
-.cube-title {
-  text-align: center;
-  color: white;
+.section-three > .cube:nth-child(3) {
+  background-color: #0000ff;
 }
 
 .footer {
@@ -253,9 +270,10 @@ export default {
   justify-content: center;
   background-color: #ff6347cc;
   text-align: center;
-  color: black;
+  color: #000000;
   font-size: 16px;
   font-weight: 700;
+  padding: 10px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -263,39 +281,24 @@ export default {
     font-size: 16px;
   }
 
-  .cube-one,
-  .cube-two,
-  .cube-three,
-  .cube-four {
-    padding: 5%;
-    margin: 2%;
-    border: 1px solid black;
-  }
-
-  .cube-five,
-  .cube-six,
-  .cube-seven {
-    padding: 5%;
-    margin: 2%;
-    border: 1px solid black;
-  }
-}
-
-@media screen and (max-width: 425px) {
   .header {
     height: 40px;
   }
 
   .section-one {
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
+  }
+
+  .section-two > .cube,
+  .section-three > .cube {
+    width: 100%;
   }
 
   .section-two,
   .section-three {
-    display: block;
+    flex-wrap: wrap;
   }
-
 
   .content-left,
   .content-right {
