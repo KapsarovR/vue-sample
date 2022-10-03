@@ -56,44 +56,42 @@
 
     <div class="section-two">
       <div class="cube">
-        <img src="@/images/Card.png" alt="" />
+        <img src="@/images/Card.png" class="images" alt="" />
         <div class="cube-title">
-          <h2>Paragraph</h2>
+          <h2>Title</h2>
         </div>
-        <div class="cube-second">
+        <div class="cube-description">
           <p>Lorem ipsum dolor sit amet</p>
         </div>
       </div>
       <div class="cube">
-        <img src="@/images/Card.png" alt="" />
+        <img src="@/images/Card.png" class="images" alt="" />
         <div class="cube-title">
-          <h2>Paragraph</h2>
+          <h2>Title</h2>
         </div>
-        <div class="cube-second">
+        <div class="cube-description">
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi
-            odio maxime
           </p>
         </div>
       </div>
       <div class="cube">
-        <img src="@/images/Card.png" alt="" />
+        <img src="@/images/Card.png" class="images" alt="" />
         <div class="cube-title">
-          <h2>Paragraph</h2>
+          <h2>Title</h2>
         </div>
-        <div class="cube-second">
+        <div class="cube-description">
           <p>Lorem ipsum dolor sit amet, consectetur</p>
         </div>
       </div>
       <div class="cube">
-        <img src="@/images/Card.png" alt="" />
+        <img src="@/images/Card.png" class="images" alt="" />
         <div class="cube-title">
-          <h2>Paragraph</h2>
+          <h2>Title</h2>
         </div>
-        <div class="cube-second">
+        <div class="cube-description">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui omnis
-            sapiente
           </p>
         </div>
       </div>
@@ -101,13 +99,13 @@
 
     <div class="section-three">
       <div class="cube">
-        <h2 class="cube-title">Paragraph</h2>
+        <h2 class="cube-title">Title</h2>
       </div>
       <div class="cube">
-        <h2 class="cube-title">Paragraph</h2>
+        <h2 class="cube-title">Title</h2>
       </div>
       <div class="cube">
-        <h2 class="cube-title">Paragraph</h2>
+        <h2 class="cube-title">Title</h2>
       </div>
     </div>
 
@@ -217,11 +215,12 @@ p {
   position: relative;
 }
 
-.cube > img {
+.cube > .images {
   width: 100%;
-  display: block;
   height: 400px;
-  flex-wrap: wrap;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .section-three > .cube {
@@ -229,17 +228,14 @@ p {
 }
 
 .section-two > .cube > .cube-title {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
+  position: relative;
   color: #ffffff;
+  display: flex;
+  justify-content: center;
 }
 
-.cube-second {
-  position: absolute;
-  bottom: 0;
-  left: 0%;
+.cube-description {
+  position: relative;
   color: #ffffff;
   font-size: 20px;
 }
@@ -252,21 +248,6 @@ p {
 .section-two,
 .section-three {
   display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.cube-image {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-
-.images {
-  width: 100%;
-  height: 400px;
 }
 
 .section-three > .cube:nth-child(1) {
