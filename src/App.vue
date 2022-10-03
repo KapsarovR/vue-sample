@@ -208,6 +208,11 @@ p {
 
 .cube {
   height: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .section-two > .cube {
@@ -230,8 +235,6 @@ p {
 .section-two > .cube > .cube-title {
   position: relative;
   color: #ffffff;
-  display: flex;
-  justify-content: center;
 }
 
 .cube-description {
