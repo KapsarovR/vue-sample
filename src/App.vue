@@ -6,14 +6,12 @@
       </div>
       <nav class="nav-bar">
         <ul class="menu">
-          <li class="menu-one">
-            <a class="menu-inner" href="#">Home</a>
-          </li>
-          <li class="menu-one">
-            <a class="menu-inner" href="#">About</a>
-          </li>
-          <li class="menu-one">
-            <a class="menu-inner" href="#">Contact</a>
+          <li
+            class="menu-one"
+            v-for="(item, index) in navigationItems"
+            :key="index"
+          >
+            <a class="menu-inner" href="#">{{ item.name }}</a>
           </li>
         </ul>
       </nav>
@@ -26,91 +24,38 @@
       <div class="content-right">
         <h1 class="content-text">My kind of life</h1>
         <ol class="content-inner">
-          <li class="option">Learn</li>
-          <ul class="content-menu">
-            <li class="option">Everyday</li>
-            <li class="option">Everywhere</li>
-            <li class="option">Anytime</li>
-          </ul>
-          <li class="option">Live</li>
-          <ul class="content-menu">
-            <li class="option">Full</li>
-            <li class="option">No regreats</li>
-            <li class="option">As you want</li>
-          </ul>
-          <li class="option">Love</li>
-          <ul class="content-menu">
-            <li class="option">Deep</li>
-            <li class="option">Purely</li>
-            <li class="option">Life</li>
-          </ul>
-          <li class="option">Sport</li>
-          <ul class="content-menu">
-            <li class="option">Nba</li>
-            <li class="option">Football</li>
-            <li class="option">Handball</li>
-          </ul>
+          <li class="option" v-for="(item, index) in sectionOne" :key="index">
+            {{ item.text }}
+            <ul class="content-menu">
+              <li class="option">{{ item.test }}</li>
+              <li class="option">{{ item.test1 }}</li>
+              <li class="option">{{ item.test2 }}</li>
+            </ul>
+          </li>
         </ol>
       </div>
     </div>
 
     <div class="section-two">
-      <div class="cube">
+      <div class="cube" v-for="(item, index) in sectionTwo" :key="index">
         <img src="@/images/Card.png" class="images" alt="" />
         <div class="cube-title">
-          <h2>Title</h2>
+          <h2>{{ item.titleOne }}</h2>
         </div>
         <div class="cube-description">
-          <p>Lorem ipsum dolor sit amet</p>
-        </div>
-      </div>
-      <div class="cube">
-        <img src="@/images/Card.png" class="images" alt="" />
-        <div class="cube-title">
-          <h2>Title</h2>
-        </div>
-        <div class="cube-description">
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi
-          </p>
-        </div>
-      </div>
-      <div class="cube">
-        <img src="@/images/Card.png" class="images" alt="" />
-        <div class="cube-title">
-          <h2>Title</h2>
-        </div>
-        <div class="cube-description">
-          <p>Lorem ipsum dolor sit amet, consectetur</p>
-        </div>
-      </div>
-      <div class="cube">
-        <img src="@/images/Card.png" class="images" alt="" />
-        <div class="cube-title">
-          <h2>Title</h2>
-        </div>
-        <div class="cube-description">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui omnis
-          </p>
+          <p>{{ item.description }}</p>
         </div>
       </div>
     </div>
 
     <div class="section-three">
-      <div class="cube">
-        <h2 class="cube-title">Title</h2>
-      </div>
-      <div class="cube">
-        <h2 class="cube-title">Title</h2>
-      </div>
-      <div class="cube">
-        <h2 class="cube-title">Title</h2>
+      <div class="cube" v-for="(item, index) in sectionThree" :key="index">
+        <h2 class="cube-title">{{ item.title }}</h2>
       </div>
     </div>
 
     <footer class="footer">
-      <p class="footer-title">Kapsar , Copyright © 2022</p>
+      <p class="footer-title">{{ footerTitle }}</p>
     </footer>
   </div>
 </template>
@@ -119,6 +64,82 @@
 export default {
   name: "App",
   components: {},
+  data() {
+    return {
+      navigationItems: [
+        {
+          name: "Home",
+          link: "/",
+        },
+        {
+          name: "About",
+          link: "/about",
+        },
+        {
+          name: "Contact",
+          link: "/contact",
+        },
+      ],
+      sectionOne: [
+        {
+          text: "Learn",
+          test: "Everyday",
+          test1: "Everywhere",
+          test2: "Anytime",
+        },
+        {
+          text: "Live",
+          test: "Full",
+          test1: "No regreats",
+          test2: "As you want",
+        },
+        {
+          text: "Love",
+          test: "Deep",
+          test1: "Purely",
+          test2: "Life",
+        },
+        {
+          text: "Sport",
+          test: "Nba",
+          test1: "Football",
+          test2: "Handball",
+        },
+      ],
+      sectionTwo: [
+        {
+          titleOne: "Title",
+          description: "Lorem ipsum dolar sit amet",
+        },
+        {
+          titleOne: "Title",
+          description:
+            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi",
+        },
+        {
+          titleOne: "Title",
+          description: "Lorem ipsum dolar sit amet",
+        },
+        {
+          titleOne: "Title",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui omnis",
+        },
+      ],
+      sectionThree: [
+        {
+          title: "Title",
+        },
+        {
+          title: "Title",
+        },
+        {
+          title: "Title",
+        },
+      ],
+      footerTitle: "Kapsar , Copyright © 2022",
+    };
+  },
 };
 </script>
 
@@ -201,7 +222,7 @@ p {
 }
 
 .option {
-  width: 25%;
+  width: 45%;
   margin: auto;
   padding: 3px;
 }
@@ -310,7 +331,7 @@ p {
   }
 
   .option {
-    width: 40%;
+    width: 60%;
   }
 
   .content-inner {
