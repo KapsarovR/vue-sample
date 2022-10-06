@@ -26,10 +26,12 @@
         <ol class="content-inner">
           <li class="option" v-for="(item, index) in sectionOne" :key="index">
             {{ item.text }}
-            <ul class="content-menu">
-              <li class="option">{{ item.test }}</li>
-              <li class="option">{{ item.test1 }}</li>
-              <li class="option">{{ item.test2 }}</li>
+            <ul
+              class="content-menu"
+              v-for="(subItem, subIndex) in item.items"
+              :key="subIndex"
+            >
+              <li class="option">{{ subItem.title }}</li>
             </ul>
           </li>
         </ol>
@@ -40,7 +42,7 @@
       <div class="cube" v-for="(item, index) in sectionTwo" :key="index">
         <img src="@/images/Card.png" class="images" alt="" />
         <div class="cube-title">
-          <h2>{{ item.titleOne }}</h2>
+          <h2>{{ item.title }}</h2>
         </div>
         <div class="cube-description">
           <p>{{ item.description }}</p>
@@ -52,6 +54,21 @@
       <div class="cube" v-for="(item, index) in sectionThree" :key="index">
         <h2 class="cube-title">{{ item.title }}</h2>
       </div>
+    </div>
+
+    <div class="section-buuton">
+      <button
+        class="buutonBtn"
+        @click="chanegeFooter('Kapsar , Copyright © 2022')"
+      >
+        Riste
+      </button>
+      <button
+        class="buutonBtn"
+        @click="chanegeFooter('Darinka , Copyright © 2022')"
+      >
+        Darinka
+      </button>
     </div>
 
     <footer class="footer">
@@ -66,6 +83,7 @@ export default {
   components: {},
   data() {
     return {
+      counter: 0,
       navigationItems: [
         {
           name: "Home",
@@ -83,45 +101,77 @@ export default {
       sectionOne: [
         {
           text: "Learn",
-          test: "Everyday",
-          test1: "Everywhere",
-          test2: "Anytime",
+          items: [
+            {
+              title: "Everyday",
+            },
+            {
+              title: "Everywhere",
+            },
+            {
+              title: "Anytime",
+            },
+          ],
         },
         {
           text: "Live",
-          test: "Full",
-          test1: "No regreats",
-          test2: "As you want",
+          items: [
+            {
+              title: "Full",
+            },
+            {
+              title: "No regreats",
+            },
+            {
+              title: "As you want",
+            },
+          ],
         },
         {
           text: "Love",
-          test: "Deep",
-          test1: "Purely",
-          test2: "Life",
+          items: [
+            {
+              title: "Deep",
+            },
+            {
+              title: "Purely",
+            },
+            {
+              title: "Life",
+            },
+          ],
         },
         {
           text: "Sport",
-          test: "Nba",
-          test1: "Football",
-          test2: "Handball",
+          items: [
+            {
+              title: "Nba",
+            },
+            {
+              title: "Football",
+            },
+            {
+              title: "Handball",
+            },
+          ],
         },
       ],
       sectionTwo: [
         {
-          titleOne: "Title",
+          title: "Title",
           description: "Lorem ipsum dolar sit amet",
         },
         {
-          titleOne: "Title",
+          title: "Title",
           description:
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi",
         },
         {
-          titleOne: "Title",
+          title: "Title",
           description: "Lorem ipsum dolar sit amet",
         },
         {
-          titleOne: "Title",
+          title: "Title",
           description:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui omnis",
         },
@@ -139,6 +189,13 @@ export default {
       ],
       footerTitle: "Kapsar , Copyright © 2022",
     };
+  },
+  methods: {
+    chanegeFooter(footerName) {
+      this.footerTitle = footerName;
+      alert("Let`s see if it works" + footerName);
+      console.log("footerName", footerName);
+    },
   },
 };
 </script>
@@ -284,6 +341,18 @@ p {
 
 .section-three > .cube:nth-child(3) {
   background-color: #0000ff;
+}
+
+.section-buuton {
+  display: flex;
+  justify-content: space-around;
+  padding: 1%;
+}
+
+.buutonBtn {
+  padding: 8px 12px;
+  text-align: center;
+  cursor: pointer;
 }
 
 .footer {
