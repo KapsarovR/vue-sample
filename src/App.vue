@@ -56,6 +56,36 @@
       </div>
     </div>
 
+    <div class="first">
+      <div class="first-image">
+        <img
+          class="image"
+          src="https://funkylife.in/wp-content/uploads/2022/08/good-morning-image-funkylife-468.jpg"
+          alt=""
+        />
+        <button v-on:click="counter += 1">Like</button>
+        <p>{{ counter }}</p>
+      </div>
+      <div class="first-image">
+        <img
+          class="image"
+          src="https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-436.jpg"
+          alt=""
+        />
+        <button @click="like()">Like</button>
+        <p>{{ counter }}</p>
+      </div>
+      <div class="first-image">
+        <img
+          class="image"
+          src="https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-435.jpg"
+          alt=""
+        />
+        <button @click="like()">Like</button>
+        <p>{{ counter }}</p>
+      </div>
+    </div>
+
     <div class="section-buuton">
       <button
         class="buutonBtn"
@@ -195,6 +225,9 @@ export default {
       this.footerTitle = footerName;
       alert("Let`s see if it works" + footerName);
       console.log("footerName", footerName);
+    },
+    like() {
+      this.counter += 1;
     },
   },
 };
@@ -341,6 +374,17 @@ p {
 
 .section-three > .cube:nth-child(3) {
   background-color: #0000ff;
+}
+
+.first {
+  display: flex;
+  align-items: flex-start;
+}
+
+.first-image {
+  display: flex;
+  width: 33.3%;
+  flex-wrap: wrap;
 }
 
 .section-buuton {
