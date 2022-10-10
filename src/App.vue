@@ -6,14 +6,12 @@
       </div>
       <nav class="nav-bar">
         <ul class="menu">
-          <li class="menu-one">
-            <a class="menu-inner" href="#">Home</a>
-          </li>
-          <li class="menu-one">
-            <a class="menu-inner" href="#">About</a>
-          </li>
-          <li class="menu-one">
-            <a class="menu-inner" href="#">Contact</a>
+          <li
+            class="menu-one"
+            v-for="(item, index) in navigationItems"
+            :key="index"
+          >
+            <a class="menu-inner" href="#">{{ item.name }}</a>
           </li>
         </ul>
       </nav>
@@ -26,91 +24,85 @@
       <div class="content-right">
         <h1 class="content-text">My kind of life</h1>
         <ol class="content-inner">
-          <li class="option">Learn</li>
-          <ul class="content-menu">
-            <li class="option">Everyday</li>
-            <li class="option">Everywhere</li>
-            <li class="option">Anytime</li>
-          </ul>
-          <li class="option">Live</li>
-          <ul class="content-menu">
-            <li class="option">Full</li>
-            <li class="option">No regreats</li>
-            <li class="option">As you want</li>
-          </ul>
-          <li class="option">Love</li>
-          <ul class="content-menu">
-            <li class="option">Deep</li>
-            <li class="option">Purely</li>
-            <li class="option">Life</li>
-          </ul>
-          <li class="option">Sport</li>
-          <ul class="content-menu">
-            <li class="option">Nba</li>
-            <li class="option">Football</li>
-            <li class="option">Handball</li>
-          </ul>
+          <li class="option" v-for="(item, index) in sectionOne" :key="index">
+            {{ item.text }}
+            <ul
+              class="content-menu"
+              v-for="(subItem, subIndex) in item.items"
+              :key="subIndex"
+            >
+              <li class="option">{{ subItem.title }}</li>
+            </ul>
+          </li>
         </ol>
       </div>
     </div>
 
     <div class="section-two">
-      <div class="cube">
+      <div class="cube" v-for="(item, index) in sectionTwo" :key="index">
         <img src="@/images/Card.png" class="images" alt="" />
         <div class="cube-title">
-          <h2>Title</h2>
+          <h2>{{ item.title }}</h2>
         </div>
         <div class="cube-description">
-          <p>Lorem ipsum dolor sit amet</p>
-        </div>
-      </div>
-      <div class="cube">
-        <img src="@/images/Card.png" class="images" alt="" />
-        <div class="cube-title">
-          <h2>Title</h2>
-        </div>
-        <div class="cube-description">
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi
-          </p>
-        </div>
-      </div>
-      <div class="cube">
-        <img src="@/images/Card.png" class="images" alt="" />
-        <div class="cube-title">
-          <h2>Title</h2>
-        </div>
-        <div class="cube-description">
-          <p>Lorem ipsum dolor sit amet, consectetur</p>
-        </div>
-      </div>
-      <div class="cube">
-        <img src="@/images/Card.png" class="images" alt="" />
-        <div class="cube-title">
-          <h2>Title</h2>
-        </div>
-        <div class="cube-description">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui omnis
-          </p>
+          <p>{{ item.description }}</p>
         </div>
       </div>
     </div>
 
     <div class="section-three">
-      <div class="cube">
-        <h2 class="cube-title">Title</h2>
-      </div>
-      <div class="cube">
-        <h2 class="cube-title">Title</h2>
-      </div>
-      <div class="cube">
-        <h2 class="cube-title">Title</h2>
+      <div class="cube" v-for="(item, index) in sectionThree" :key="index">
+        <h2 class="cube-title">{{ item.title }}</h2>
       </div>
     </div>
 
+    <div class="first">
+      <div class="first-image">
+        <img
+          class="image"
+          src="https://funkylife.in/wp-content/uploads/2022/08/good-morning-image-funkylife-468.jpg"
+          alt=""
+        />
+        <button @click="like()">Like</button>
+        <p>{{ counter }}</p>
+      </div>
+      <div class="first-image">
+        <img
+          class="image"
+          src="https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-436.jpg"
+          alt=""
+        />
+        <button @click="like()">Like</button>
+        <p>{{ counter }}</p>
+      </div>
+      <div class="first-image">
+        <img
+          class="image"
+          src="https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-435.jpg"
+          alt=""
+        />
+        <button @click="like()">Like</button>
+        <p>{{ counter }}</p>
+      </div>
+    </div>
+
+    <div class="section-buuton">
+      <button
+        class="btn"
+        @click="chanegeFooter('Kapsar , Copyright © 2022')"
+      >
+        Riste
+      </button>
+      <button
+        class="btn"
+        @click="chanegeFooter('Darinka , Copyright © 2022')"
+      >
+        Darinka
+      </button>
+    </div>
+
     <footer class="footer">
-      <p class="footer-title">Kapsar , Copyright © 2022</p>
+      <p class="footer-title">{{ footerTitle }}</p>
     </footer>
   </div>
 </template>
@@ -119,6 +111,123 @@
 export default {
   name: "App",
   components: {},
+  data() {
+    return {
+      counter: 0,
+      navigationItems: [
+        {
+          name: "Home",
+          link: "/",
+        },
+        {
+          name: "About",
+          link: "/about",
+        },
+        {
+          name: "Contact",
+          link: "/contact",
+        },
+      ],
+      sectionOne: [
+        {
+          text: "Learn",
+          items: [
+            {
+              title: "Everyday",
+            },
+            {
+              title: "Everywhere",
+            },
+            {
+              title: "Anytime",
+            },
+          ],
+        },
+        {
+          text: "Live",
+          items: [
+            {
+              title: "Full",
+            },
+            {
+              title: "No regreats",
+            },
+            {
+              title: "As you want",
+            },
+          ],
+        },
+        {
+          text: "Love",
+          items: [
+            {
+              title: "Deep",
+            },
+            {
+              title: "Purely",
+            },
+            {
+              title: "Life",
+            },
+          ],
+        },
+        {
+          text: "Sport",
+          items: [
+            {
+              title: "Nba",
+            },
+            {
+              title: "Football",
+            },
+            {
+              title: "Handball",
+            },
+          ],
+        },
+      ],
+      sectionTwo: [
+        {
+          title: "Title",
+          description: "Lorem ipsum dolar sit amet",
+        },
+        {
+          title: "Title",
+          description:
+            "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi",
+        },
+        {
+          title: "Title",
+          description: "Lorem ipsum dolar sit amet",
+        },
+        {
+          title: "Title",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui omnis",
+        },
+      ],
+      sectionThree: [
+        {
+          title: "Title",
+        },
+        {
+          title: "Title",
+        },
+        {
+          title: "Title",
+        },
+      ],
+      footerTitle: "Kapsar , Copyright © 2022",
+    };
+  },
+  methods: {
+    chanegeFooter(footerName) {
+      this.footerTitle = footerName;
+    },
+    like() {
+      this.counter += 1;
+    },
+  },
 };
 </script>
 
@@ -201,7 +310,7 @@ p {
 }
 
 .option {
-  width: 25%;
+  width: 45%;
   margin: auto;
   padding: 3px;
 }
@@ -265,6 +374,29 @@ p {
   background-color: #0000ff;
 }
 
+.first {
+  display: flex;
+  align-items: flex-start;
+}
+
+.first-image {
+  display: flex;
+  width: 33.3%;
+  flex-wrap: wrap;
+}
+
+.section-buuton {
+  display: flex;
+  justify-content: space-around;
+  padding: 1%;
+}
+
+.btn {
+  padding: 8px 12px;
+  text-align: center;
+  cursor: pointer;
+}
+
 .footer {
   display: flex;
   justify-content: center;
@@ -310,7 +442,7 @@ p {
   }
 
   .option {
-    width: 40%;
+    width: 60%;
   }
 
   .content-inner {
