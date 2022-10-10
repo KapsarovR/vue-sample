@@ -63,7 +63,7 @@
           src="https://funkylife.in/wp-content/uploads/2022/08/good-morning-image-funkylife-468.jpg"
           alt=""
         />
-        <button v-on:click="counter += 1">Like</button>
+        <button @click="like()">Like</button>
         <p>{{ counter }}</p>
       </div>
       <div class="first-image">
@@ -88,13 +88,13 @@
 
     <div class="section-buuton">
       <button
-        class="buutonBtn"
+        class="btn"
         @click="chanegeFooter('Kapsar , Copyright © 2022')"
       >
         Riste
       </button>
       <button
-        class="buutonBtn"
+        class="btn"
         @click="chanegeFooter('Darinka , Copyright © 2022')"
       >
         Darinka
@@ -223,8 +223,6 @@ export default {
   methods: {
     chanegeFooter(footerName) {
       this.footerTitle = footerName;
-      alert("Let`s see if it works" + footerName);
-      console.log("footerName", footerName);
     },
     like() {
       this.counter += 1;
@@ -393,7 +391,7 @@ p {
   padding: 1%;
 }
 
-.buutonBtn {
+.btn {
   padding: 8px 12px;
   text-align: center;
   cursor: pointer;
