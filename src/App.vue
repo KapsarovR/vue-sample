@@ -53,50 +53,31 @@
     <div class="section-three">
       <div class="cube" v-for="(item, index) in sectionThree" :key="index">
         <h2 class="cube-title">{{ item.title }}</h2>
+        <div>
+          <button class="btnOne" @click="likeCube(index)">Like</button>
+          <button class="btnTwo" @click="disLike(index)">disLike</button>
+          Likes {{ item.counter }}
+        </div>
       </div>
     </div>
 
-    <div class="first">
-      <div class="first-image">
-        <img
-          class="image"
-          src="https://funkylife.in/wp-content/uploads/2022/08/good-morning-image-funkylife-468.jpg"
-          alt=""
-        />
-        <button @click="like()">Like</button>
-        <p>{{ counter }}</p>
-      </div>
-      <div class="first-image">
-        <img
-          class="image"
-          src="https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-436.jpg"
-          alt=""
-        />
-        <button @click="like()">Like</button>
-        <p>{{ counter }}</p>
-      </div>
-      <div class="first-image">
-        <img
-          class="image"
-          src="https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-435.jpg"
-          alt=""
-        />
+    <div class="section-four">
+      <div
+        class="first-image"
+        v-for="(item, index) in sectionFour"
+        :key="index"
+      >
+        <img class="image" :src="item.images" alt="" />
         <button @click="like()">Like</button>
         <p>{{ counter }}</p>
       </div>
     </div>
 
     <div class="section-buuton">
-      <button
-        class="btn"
-        @click="chanegeFooter('Kapsar , Copyright © 2022')"
-      >
+      <button class="btn" @click="chanegeFooter('Kapsar , Copyright © 2022')">
         Riste
       </button>
-      <button
-        class="btn"
-        @click="chanegeFooter('Darinka , Copyright © 2022')"
-      >
+      <button class="btn" @click="chanegeFooter('Darinka , Copyright © 2022')">
         Darinka
       </button>
     </div>
@@ -108,6 +89,8 @@
 </template>
 
 <script>
+// import test from 'node:test';
+
 export default {
   name: "App",
   components: {},
@@ -209,12 +192,29 @@ export default {
       sectionThree: [
         {
           title: "Title",
+          counter: 0,
         },
         {
           title: "Title",
+          counter: 0,
         },
         {
           title: "Title",
+          counter: 0,
+        },
+      ],
+      sectionFour: [
+        {
+          images:
+            "https://funkylife.in/wp-content/uploads/2022/08/good-morning-image-funkylife-468.jpg",
+        },
+        {
+          images:
+            "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-436.jpg",
+        },
+        {
+          images:
+            "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-435.jpg",
         },
       ],
       footerTitle: "Kapsar , Copyright © 2022",
@@ -224,6 +224,20 @@ export default {
     chanegeFooter(footerName) {
       this.footerTitle = footerName;
     },
+
+    likeCube(index) {
+      this.sectionThree[index].counter += 1;
+    },
+
+    disLike(index) {
+      this.sectionThree[index].counter -= 1;
+    },
+    // function(index, one) {
+    //   if (index > one) {
+    //     this.sectionThree[index].counter += 1;
+    //   } else (index < one && one < 0);
+    //   this.sectionThree[one].counter -= 1;
+    // },
     like() {
       this.counter += 1;
     },
@@ -374,7 +388,7 @@ p {
   background-color: #0000ff;
 }
 
-.first {
+.section-four {
   display: flex;
   align-items: flex-start;
 }
