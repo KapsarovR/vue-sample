@@ -54,8 +54,8 @@
       <div class="cube" v-for="(item, index) in sectionThree" :key="index">
         <h2 class="cube-title">{{ item.title }}</h2>
         <div>
-          <button class="btnOne" @click="likeCube(index)">Like</button>
-          <button class="btnTwo" @click="disLike(index)">disLike</button>
+          <button class="btn" @click="likeSectionThree(index)">Like</button>
+          <button class="btn" @click="dislikeSectionThree(index)">disLike</button>
           Likes {{ item.counter }}
         </div>
       </div>
@@ -68,8 +68,8 @@
         :key="index"
       >
         <img class="image" :src="item.images" alt="" />
-        <button @click="like()">Like</button>
-        <p>{{ counter }}</p>
+        <button @click="like(index)">Like</button>
+        <p>{{ item.counter }}</p>
       </div>
     </div>
 
@@ -89,14 +89,12 @@
 </template>
 
 <script>
-// import test from 'node:test';
 
 export default {
   name: "App",
   components: {},
   data() {
     return {
-      counter: 0,
       navigationItems: [
         {
           name: "Home",
@@ -207,14 +205,17 @@ export default {
         {
           images:
             "https://funkylife.in/wp-content/uploads/2022/08/good-morning-image-funkylife-468.jpg",
+            counter: 0,
         },
         {
           images:
             "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-436.jpg",
+            counter: 0,
         },
         {
           images:
             "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-435.jpg",
+            counter: 0,
         },
       ],
       footerTitle: "Kapsar , Copyright © 2022",
@@ -225,21 +226,18 @@ export default {
       this.footerTitle = footerName;
     },
 
-    likeCube(index) {
+    likeSectionThree(index) {
       this.sectionThree[index].counter += 1;
     },
 
-    disLike(index) {
-      this.sectionThree[index].counter -= 1;
+    dislikeSectionThree(index) {
+      if (this.sectionThree[index].counter > 0) {
+        this.sectionThree[index].counter -= 1;
+      }
     },
-    // function(index, one) {
-    //   if (index > one) {
-    //     this.sectionThree[index].counter += 1;
-    //   } else (index < one && one < 0);
-    //   this.sectionThree[one].counter -= 1;
-    // },
-    like() {
-      this.counter += 1;
+
+    like(index) {
+      this.sectionFour[index].counter += 1;
     },
   },
 };
