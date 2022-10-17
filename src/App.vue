@@ -1,21 +1,6 @@
 <template>
   <div id="app">
-    <div class="header">
-      <div class="logo">
-        <img src="@/images/Git-Icon-Black.png" class="image" alt="" />
-      </div>
-      <nav class="nav-bar">
-        <ul class="menu">
-          <li
-            class="menu-one"
-            v-for="(item, index) in navigationItems"
-            :key="index"
-          >
-            <a class="menu-inner" href="#">{{ item.name }}</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <app-header />
 
     <div class="section-one">
       <div class="content-left">
@@ -55,7 +40,9 @@
         <h2 class="cube-title">{{ item.title }}</h2>
         <div>
           <button class="btn" @click="likeSectionThree(index)">Like</button>
-          <button class="btn" @click="dislikeSectionThree(index)">disLike</button>
+          <button class="btn" @click="dislikeSectionThree(index)">
+            disLike
+          </button>
           Likes {{ item.counter }}
         </div>
       </div>
@@ -73,42 +60,19 @@
       </div>
     </div>
 
-    <div class="section-buuton">
-      <button class="btn" @click="chanegeFooter('Kapsar , Copyright © 2022')">
-        Riste
-      </button>
-      <button class="btn" @click="chanegeFooter('Darinka , Copyright © 2022')">
-        Darinka
-      </button>
-    </div>
-
-    <footer class="footer">
-      <p class="footer-title">{{ footerTitle }}</p>
-    </footer>
+    <app-footer />
   </div>
 </template>
 
 <script>
+import AppFooter from "@/components/AppFooter.vue";
+import AppHeader from "@/components/AppHeader.vue";
 
 export default {
   name: "App",
-  components: {},
+  components: { AppHeader, AppFooter },
   data() {
     return {
-      navigationItems: [
-        {
-          name: "Home",
-          link: "/",
-        },
-        {
-          name: "About",
-          link: "/about",
-        },
-        {
-          name: "Contact",
-          link: "/contact",
-        },
-      ],
       sectionOne: [
         {
           text: "Learn",
@@ -205,27 +169,23 @@ export default {
         {
           images:
             "https://funkylife.in/wp-content/uploads/2022/08/good-morning-image-funkylife-468.jpg",
-            counter: 0,
+          counter: 0,
         },
         {
           images:
             "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-436.jpg",
-            counter: 0,
+          counter: 0,
         },
         {
           images:
             "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-435.jpg",
-            counter: 0,
+          counter: 0,
         },
       ],
-      footerTitle: "Kapsar , Copyright © 2022",
+      // footerTitle: "Kapsar , Copyright © 2022",
     };
   },
   methods: {
-    chanegeFooter(footerName) {
-      this.footerTitle = footerName;
-    },
-
     likeSectionThree(index) {
       this.sectionThree[index].counter += 1;
     },
@@ -250,44 +210,6 @@ body {
 h2,
 p {
   margin: 0;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  background: #ff6347cc;
-  height: 50px;
-}
-
-.menu {
-  margin: auto;
-}
-
-.menu-one {
-  display: inline-block;
-  font-size: 20px;
-  margin: 10px;
-}
-
-.menu-inner {
-  text-decoration: none;
-  color: #ffffff;
-}
-
-.title-content {
-  background: #619b6a66;
-  margin: 0;
-  display: flex;
-  gap: 20px;
-  place-content: center;
-}
-
-.title-inner {
-  font-size: 25px;
-  font-weight: 600;
-  color: #ffffff;
-  line-height: normal;
-  letter-spacing: 5px;
 }
 
 .section-one {
@@ -407,17 +329,6 @@ p {
   padding: 8px 12px;
   text-align: center;
   cursor: pointer;
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
-  background-color: #ff6347cc;
-  text-align: center;
-  color: #000000;
-  font-size: 16px;
-  font-weight: 700;
-  padding: 10px;
 }
 
 @media only screen and (max-width: 768px) {
