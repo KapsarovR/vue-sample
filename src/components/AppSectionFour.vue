@@ -2,6 +2,7 @@
   <div class="section-four">
     <div class="first-image" v-for="(item, index) in sectionFour" :key="index">
       <img class="image" :src="item.images" alt="" />
+      <!-- <app-images :src="item.images"/> -->
       <button @click="like(index)">Like</button>
       <p>{{ item.counter }}</p>
     </div>
@@ -9,7 +10,11 @@
 </template>
 
 <script>
+// import AppImages from "@/components/AppImages.vue"
 export default {
+  // components: {
+  //   AppImages
+  // },
   data() {
     return {
       sectionFour: [

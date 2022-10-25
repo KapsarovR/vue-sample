@@ -1,39 +1,48 @@
 <template>
   <div class="section-two">
     <div class="cube" v-for="(item, index) in sectionTwo" :key="index">
-      <img src="@/images/Card.png" class="images" alt="" />
-      <div class="cube-title">
-        <h2>{{ item.title }}</h2>
-      </div>
-      <div class="cube-description">
-        <p>{{ item.description }}</p>
-      </div>
+      <img :src="item.images" class="images" alt="" />
+
+      <app-title :title="item.title" />
+
+      <app-description :description="item.description" />
     </div>
   </div>
 </template>
 
 <script>
+import AppTitle from "@/components/AppTitle.vue";
+import AppDescription from "@/components/AppDescription.vue";
 export default {
+  components: {
+    AppTitle,
+    AppDescription,
+  },
+
   data() {
     return {
       sectionTwo: [
         {
-          title: "Title",
+          title: "Monday",
           description: "Lorem ipsum dolar sit amet",
+          images:  "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-430.jpg",
         },
         {
-          title: "Title",
+          title: "Tuesday",
           description:
             "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi",
+            images: "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-442.jpg",
         },
         {
-          title: "Title",
+          title: "Wednesday",
           description: "Lorem ipsum dolar sit amet",
+          images: "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-431.jpg",
         },
         {
-          title: "Title",
+          title: "Thursday",
           description:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui omnis",
+            images: "https://funkylife.in/wp-content/uploads/2022/08/good-morning-image-funkylife-467.jpg",
         },
       ],
     };
@@ -59,14 +68,4 @@ export default {
   width: 33.3%;
 }
 
-.section-two > .cube > .cube-title {
-  position: relative;
-  color: #ffffff;
-}
-
-.cube-description {
-  position: relative;
-  color: #ffffff;
-  font-size: 20px;
-}
 </style>

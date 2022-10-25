@@ -1,7 +1,7 @@
 <template>
   <div class="section-three">
     <div class="cube" v-for="(item, index) in sectionThree" :key="index">
-      <h2 class="cube-title">{{ item.title }}</h2>
+      <app-title :title="item.title" />
       <div>
         <button class="btn" @click="likeSectionThree(index)">Like</button>
         <button class="btn" @click="dislikeSectionThree(index)">disLike</button>
@@ -12,20 +12,24 @@
 </template>
 
 <script>
+import AppTitle from "@/components/AppTitle.vue";
 export default {
+  components: {
+    AppTitle,
+  },
   data() {
     return {
       sectionThree: [
         {
-          title: "Title",
+          title: "Friday",
           counter: 0,
         },
         {
-          title: "Title",
+          title: "Saturday",
           counter: 0,
         },
         {
-          title: "Title",
+          title: "Sunday",
           counter: 0,
         },
       ],
@@ -41,15 +45,11 @@ export default {
         this.sectionThree[index].counter -= 1;
       }
     },
-  }
+  },
 };
 </script>
 
 <style lang="css">
-.section-three > .cube > .cube-title {
-  text-align: center;
-  color: #ffffff;
-}
 
 .section-three > .cube:nth-child(1) {
   background: #7fff00;
