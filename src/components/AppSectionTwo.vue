@@ -1,8 +1,8 @@
 <template>
   <div class="section-two">
     <div class="cube" v-for="(item, index) in sectionTwo" :key="index">
-      <img :src="item.images" class="images" alt="" />
-
+      <!-- <img :src="item.images" class="images" alt="" /> -->
+      <app-image :src="item.image"/>
       <app-title :title="item.title" />
 
       <app-description :description="item.description" />
@@ -13,10 +13,12 @@
 <script>
 import AppTitle from "@/components/AppTitle.vue";
 import AppDescription from "@/components/AppDescription.vue";
+import AppImage from "@/components/AppImage.vue"
 export default {
   components: {
     AppTitle,
     AppDescription,
+    AppImage
   },
 
   data() {

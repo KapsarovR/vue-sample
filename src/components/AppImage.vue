@@ -1,7 +1,7 @@
-<!-- <template>
+<template>
      <div class="section-four">
     <div class="first-image" >
-      <img class="image" :src="item.images" alt="" {{ images }} />
+      <img class="image" :src="image" alt="" />
     </div>
   </div>
 
@@ -9,8 +9,8 @@
 
 <script>
 export default {
-  name: "AppImages",
-  props: ["images"]
+  name: "AppImage",
+  props: ["image"]
 };
 </script>
 
@@ -21,4 +21,4 @@ export default {
   flex-wrap: wrap;
 }
 
-</style> -->
+</style>
