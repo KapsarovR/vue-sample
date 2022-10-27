@@ -1,24 +1,17 @@
 <template>
-     <div class="section-four">
-    <div class="first-image" >
-      <img class="image" :src="image" alt="" />
-    </div>
-  </div>
-
+  <img class="image" :src="image" alt="" />
 </template>
 
 <script>
 export default {
   name: "AppImage",
-  props: ["image"]
+  props: ["image"],
 };
 </script>
 
 <style lang="css" scoped>
- .first-image {
-  display: flex;
-  width: 33.3%;
-  flex-wrap: wrap;
+.image {
+  width: 100%;
+  height: 100%;
 }
-
 </style>

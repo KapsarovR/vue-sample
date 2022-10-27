@@ -1,7 +1,7 @@
 <template>
   <div class="section-three">
     <div class="cube" v-for="(item, index) in sectionThree" :key="index">
-      <app-title :title="item.title" />
+      <app-title class="cube-title" :title="item.title" />
       <div>
         <button class="btn" @click="likeSectionThree(index)">Like</button>
         <button class="btn" @click="dislikeSectionThree(index)">disLike</button>
@@ -49,7 +49,15 @@ export default {
 };
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
+.cube-title {
+  text-align: center;
+  color: #ffffff;
+}
+
+.section-three > .cube {
+  width: 33.3%;
+}
 
 .section-three > .cube:nth-child(1) {
   background: #7fff00;

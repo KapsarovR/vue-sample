@@ -1,5 +1,5 @@
 <template>
-  <div class="cube-title section-three">
+  <div class="title">
     <h2>{{ title }}</h2>
   </div>
 </template>
@@ -12,13 +12,4 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.cube-title {
-  position: relative;
-  color: #ffffff;
-}
-
-.section-three > .cube > .cube-title {
-  text-align: center;
-  color: #ffffff;
-}
 </style>
