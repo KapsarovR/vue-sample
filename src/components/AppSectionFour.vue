@@ -18,12 +18,14 @@ export default {
   },
   props: ["inputData"],
 
-  methods: {
+  methods: { 
     like(index) {
       this.sectionFour[index].counter += 1;
-    },
-  },
-};
+    }
+  }
+}
+
+
 </script>
 
 <style lang="css" scoped>

@@ -4,23 +4,23 @@
       <app-description :description="item.message + 'Frst Name'" />
       <input
         type="text"
-        v-model="message"
-        name="frstName"
-        placeholder="Enter your Frst Name"
+        v-model="firstName"
+        name="First Name"
+        placeholder="Enter your Frst Name" required
       />
       <app-description :description="item.message + 'Last Name'" />
       <input
         type="text"
-        v-model="message"
-        name="lastName"
-        placeholder="Enter your Last Name"
+        v-model="lastName"
+        name="Last Name"
+        placeholder="Enter your Last Name" required
       />
       <app-description :description="item.message + 'Email'" />
       <input
-        type="email"
-        v-model="message"
+        type="email" 
+        v-model="email"
         name="email"
-        placeholder="Enter your Email"
+        placeholder="Enter your Email" required
       />
       <app-description :description="item.message + 'Password'" />
       <input
@@ -42,6 +42,11 @@ export default {
     AppDescription,
   },
   props: ["inputData"],
+  methods:{
+  submit() {
+    alert(this.firstName + ' ' + this.lastName + ' ' + this.email)
+  },
+}
 };
 </script>
 

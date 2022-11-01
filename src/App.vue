@@ -8,9 +8,9 @@
 
     <app-section-three :inputData="sectionThree" />
 
-    <app-section-four :inputData="sectionFour"  />
+    <app-section-four :inputData="sectionFour" />
 
-    <app-five  :inputData="sectionFive"/>
+    <app-section-five :inputData="sectionFive" />
 
     <app-footer />
   </div>
@@ -23,7 +23,7 @@ import AppSectionOne from "@/components/AppSectionOne.vue";
 import AppSectionTwo from "@/components/AppSectionTwo.vue";
 import AppSectionThree from "@/components/AppSectionThree.vue";
 import AppSectionFour from "@/components/AppSectionFour.vue";
-import AppFive from "@/components/AppFive.vue";
+import AppSectionFive from "@/components/AppSectionFive.vue";
 
 export default {
   name: "App",
@@ -34,9 +34,8 @@ export default {
     AppSectionTwo,
     AppSectionThree,
     AppSectionFour,
-    AppFive
-},
-  counter: 0,
+    AppSectionFive,
+  },
   data() {
     return {
       sectionOne: [
@@ -159,13 +158,13 @@ export default {
       sectionFive: [
         {
           title: "Login",
-          message : "Enter your "
+          message: "Enter your ",
         },
       ],
     };
   },
   methods: {
-  
+    
   },
 };
 </script>
