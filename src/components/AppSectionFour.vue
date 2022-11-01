@@ -1,40 +1,23 @@
 <template>
   <div class="section-four">
-    <div class="first-image" v-for="(item, index) in sectionFour" :key="index">
-      <app-image class="image" :image="item.image" />
+    <div class="first-image" v-for="(item, index) in inputData" :key="index">
+      <app-image :image="item.image" />
       <button @click="like(index)">Like</button>
-      <p>{{ item.counter }}</p>
+      <app-description :description="item.counter" />
     </div>
   </div>
 </template>
 
 <script>
 import AppImage from "@/components/AppImage.vue";
+import AppDescription from "@/components/AppDescription.vue";
 export default {
   components: {
     AppImage,
+    AppDescription,
   },
-  data() {
-    return {
-      sectionFour: [
-        {
-          image:
-            "https://funkylife.in/wp-content/uploads/2022/08/good-morning-image-funkylife-468.jpg",
-          counter: 0,
-        },
-        {
-          image:
-            "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-436.jpg",
-          counter: 0,
-        },
-        {
-          image:
-            "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-435.jpg",
-          counter: 0,
-        },
-      ],
-    };
-  },
+  props: ["inputData"],
+
   methods: {
     like(index) {
       this.sectionFour[index].counter += 1;

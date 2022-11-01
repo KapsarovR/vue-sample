@@ -1,5 +1,5 @@
 <template>
-  <div class="description">
+  <div class="description__wrapper">
     <p>{{ description }}</p>
   </div>
 </template>
