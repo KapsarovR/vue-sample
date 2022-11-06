@@ -157,15 +157,12 @@ export default {
       ],
       sectionFive: [
         {
-          title: "Login",
           message: "Enter your ",
         },
       ],
     };
   },
-  methods: {
-    
-  },
+  methods: {  },
 };
 </script>
 
