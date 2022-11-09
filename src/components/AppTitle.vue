@@ -6,10 +6,9 @@
 
 <script>
 export default {
-    name: "AppTitle",
-    props: ["title"]
-}
+  name: "AppTitle",
+  props: ["title"],
+};
 </script>
 
-<style lang="css" scoped>
-</style>
+<style lang="css" scoped></style>

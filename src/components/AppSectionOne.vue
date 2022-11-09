@@ -6,7 +6,7 @@
     <div class="content-right">
       <h1 class="content-text">My kind of life</h1>
       <ol class="content-inner">
-        <li class="option" v-for="(item, index) in sectionOne" :key="index">
+        <li class="option" v-for="(item, index) in inputData" :key="index">
           {{ item.text }}
           <ul
             class="content-menu"
@@ -23,68 +23,7 @@
 
 <script>
 export default {
-    data() {
-    return {
-        sectionOne: [
-        {
-          text: "Learn",
-          items: [
-            {
-              title: "Everyday",
-            },
-            {
-              title: "Everywhere",
-            },
-            {
-              title: "Anytime",
-            },
-          ],
-        },
-        {
-          text: "Live",
-          items: [
-            {
-              title: "Full",
-            },
-            {
-              title: "No regreats",
-            },
-            {
-              title: "As you want",
-            },
-          ],
-        },
-        {
-          text: "Love",
-          items: [
-            {
-              title: "Deep",
-            },
-            {
-              title: "Purely",
-            },
-            {
-              title: "Life",
-            },
-          ],
-        },
-        {
-          text: "Sport",
-          items: [
-            {
-              title: "Nba",
-            },
-            {
-              title: "Football",
-            },
-            {
-              title: "Handball",
-            },
-          ],
-        },
-      ],
-    };
-  },
+  props: ["inputData"],
 };
 </script>
 

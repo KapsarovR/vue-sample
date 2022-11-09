@@ -1,11 +1,14 @@
 <template>
   <div class="section-three">
-    <div class="cube" v-for="(item, index) in sectionThree" :key="index">
-      <app-title class="cube-title" :title="item.title" />
+    <div class="cube" v-for="(item, index) in inputData" :key="index">
+      <app-title class="title__wrapper" :title="item.title" />
       <div>
-        <button class="btn" @click="likeSectionThree(index)">Like</button>
         <button class="btn" @click="dislikeSectionThree(index)">disLike</button>
-        Likes {{ item.counter }}
+        <button class="btn" @click="likeSectionThree(index)">Like</button>
+        <App-description
+          class="description__wrapper"
+          :description="'Like ' + item.counter"
+        />
       </div>
     </div>
   </div>
@@ -13,28 +16,14 @@
 
 <script>
 import AppTitle from "@/components/AppTitle.vue";
+import AppDescription from "@/components/AppDescription.vue";
 export default {
   components: {
     AppTitle,
+    AppDescription,
   },
-  data() {
-    return {
-      sectionThree: [
-        {
-          title: "Friday",
-          counter: 0,
-        },
-        {
-          title: "Saturday",
-          counter: 0,
-        },
-        {
-          title: "Sunday",
-          counter: 0,
-        },
-      ],
-    };
-  },
+  props: ["inputData"],
+
   methods: {
     likeSectionThree(index) {
       this.sectionThree[index].counter += 1;
@@ -50,11 +39,15 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.cube-title {
+.title__wrapper {
   text-align: center;
   color: #ffffff;
 }
 
+.description__wrapper {
+  display: flex;
+  justify-content: center;
+}
 .section-three > .cube {
   width: 33.3%;
 }
