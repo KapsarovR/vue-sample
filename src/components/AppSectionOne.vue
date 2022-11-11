@@ -4,7 +4,7 @@
       <img src="@/images/Happy monday.jpg" class="image" alt="" />
     </div>
     <div class="content-right">
-      <h1 class="content-text">My kind of life</h1>
+      <app-title class="content-text" :title="'My kind of life'" />
       <ol class="content-inner">
         <li class="option" v-for="(item, index) in inputData" :key="index">
           {{ item.text }}

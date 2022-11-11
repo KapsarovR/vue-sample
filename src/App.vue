@@ -6,9 +6,13 @@
 
     <app-section-two :inputData="sectionTwo" />
 
-    <app-section-three :inputData="sectionThree" />
+    <app-section-three
+      :inputData="sectionThree"
+      @like="handleLikeThree"
+      @disLike="disLikeThree"
+    />
 
-    <app-section-four :inputData="sectionFour" />
+    <app-section-four :inputData="sectionFour" @like="handleLike" />
 
     <app-section-five :inputData="sectionFive" />
 
@@ -162,7 +166,20 @@ export default {
       ],
     };
   },
-  methods: {  },
+  methods: {
+    handleLike(index) {
+      this.sectionFour[index].counter += 1;
+    },
+
+    handleLikeThree(index) {
+      this.sectionThree[index].counter += 1;
+    },
+    disLikeThree(index) {
+      if (this.sectionThree[index].counter > 0) {
+        this.sectionThree[index].counter -= 1;
+      }
+    },
+  },
 };
 </script>
 
