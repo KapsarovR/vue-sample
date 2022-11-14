@@ -22,7 +22,11 @@
 </template>
 
 <script>
+import AppTitle from "./AppTitle.vue";
 export default {
+  components: {
+    AppTitle,
+  },
   props: ["inputData"],
 };
 </script>

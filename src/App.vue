@@ -263,6 +263,10 @@ p {
     font-size: 15px;
   }
 
+  .contact {
+    width: 100%;
+  }
+
   .footer {
     font-size: 13px;
     font-weight: 700;

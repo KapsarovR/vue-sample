@@ -36,7 +36,7 @@ export default {
 };
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .title__wrapper {
   text-align: center;
   color: #ffffff;
@@ -46,19 +46,26 @@ export default {
   display: flex;
   justify-content: center;
 }
-.section-three > .cube {
-  width: 33.3%;
-}
+.section-three {
+  .cube {
+    width: 33.3%;
 
-.section-three > .cube:nth-child(1) {
-  background: #7fff00;
-}
+    &:nth-child(1) {
+      background: #7fff00;
+    }
 
-.section-three > .cube:nth-child(2) {
-  background: #008000;
-}
+    &:nth-child(2) {
+      background: #008000;
+    }
 
-.section-three > .cube:nth-child(3) {
-  background-color: #0000ff;
+    &:nth-child(3) {
+      background-color: #0000ff;
+    }
+  }
+}
+@media only screen and (max-width: 425px) {
+  .section-three > .cube {
+    width: 100%;
+  }
 }
 </style>
