@@ -3,8 +3,8 @@
     <div class="cube" v-for="(item, index) in inputData" :key="index">
       <app-title class="title__wrapper" :title="item.title" />
       <div>
-        <button class="btn" @click="dislikeSectionThree(index)">disLike</button>
-        <button class="btn" @click="likeSectionThree(index)">Like</button>
+        <button class="btn" @click="dislike(index)">disLike</button>
+        <button class="btn" @click="like(index)">Like</button>
         <App-description
           class="description__wrapper"
           :description="'Like ' + item.counter"
@@ -25,20 +25,18 @@ export default {
   props: ["inputData"],
 
   methods: {
-    likeSectionThree(index) {
-      this.sectionThree[index].counter += 1;
+    like(index) {
+      this.$emit("like", index);
     },
 
-    dislikeSectionThree(index) {
-      if (this.sectionThree[index].counter > 0) {
-        this.sectionThree[index].counter -= 1;
-      }
+    dislike(index) {
+      this.$emit("disLike", index);
     },
   },
 };
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .title__wrapper {
   text-align: center;
   color: #ffffff;
@@ -48,19 +46,26 @@ export default {
   display: flex;
   justify-content: center;
 }
-.section-three > .cube {
-  width: 33.3%;
-}
+.section-three {
+  .cube {
+    width: 33.3%;
 
-.section-three > .cube:nth-child(1) {
-  background: #7fff00;
-}
+    &:nth-child(1) {
+      background: #7fff00;
+    }
 
-.section-three > .cube:nth-child(2) {
-  background: #008000;
-}
+    &:nth-child(2) {
+      background: #008000;
+    }
 
-.section-three > .cube:nth-child(3) {
-  background-color: #0000ff;
+    &:nth-child(3) {
+      background-color: #0000ff;
+    }
+  }
+}
+@media only screen and (max-width: 425px) {
+  .section-three > .cube {
+    width: 100%;
+  }
 }
 </style>

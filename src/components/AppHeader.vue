@@ -40,7 +40,7 @@ export default {
 };
 </script>
 
-<style lang="css">
+<style lang="scss">
 .header {
   display: flex;
   justify-content: space-between;
@@ -50,17 +50,17 @@ export default {
 
 .menu {
   margin: auto;
-}
 
-.menu-one {
-  display: inline-block;
-  font-size: 20px;
-  margin: 10px;
-}
+  &-one {
+    display: inline-block;
+    font-size: 20px;
+    margin: 10px;
+  }
 
-.menu-inner {
-  text-decoration: none;
-  color: #ffffff;
+  &-inner {
+    text-decoration: none;
+    color: #ffffff;
+  }
 }
 
 .title-content {
