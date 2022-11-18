@@ -3,9 +3,13 @@
     <div class="cube" v-for="(item, index) in inputData" :key="index">
       <app-title class="title__wrapper" :title="item.title" />
       <div>
-        <button class="btn" @click="dislike(index)">disLike</button>
-        <button class="btn" @click="like(index)">Like</button>
-        <App-description
+        <app-button
+          @handleClick="disLike"
+          :buttonTitle="'DisLike'"
+          :index="index"
+        />
+        <app-button @handleClick="like" :buttonTitle="'Like'" />
+        <app-description
           class="description__wrapper"
           :description="'Like ' + item.counter"
         />
@@ -17,10 +21,12 @@
 <script>
 import AppTitle from "@/components/AppTitle.vue";
 import AppDescription from "@/components/AppDescription.vue";
+import AppButton from "@/components/AppButton.vue";
 export default {
   components: {
     AppTitle,
     AppDescription,
+    AppButton,
   },
   props: ["inputData"],
 

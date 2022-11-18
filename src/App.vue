@@ -263,7 +263,7 @@ p {
     font-size: 15px;
   }
 
-  .contact {
+  .contact{
     width: 100%;
   }
 

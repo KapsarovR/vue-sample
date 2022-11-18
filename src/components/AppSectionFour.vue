@@ -2,7 +2,8 @@
   <div class="section-four">
     <div class="first-image" v-for="(item, index) in inputData" :key="index">
       <app-image :image="item.image" />
-      <button @click="like(index)">Like</button>
+      <app-button @handleClick="like" :buttonTitle="'Like'" />
+      <!-- <button @click="like(index)">Like</button> -->
       <app-description :description="item.counter" />
     </div>
   </div>
@@ -11,10 +12,12 @@
 <script>
 import AppImage from "@/components/AppImage.vue";
 import AppDescription from "@/components/AppDescription.vue";
+import AppButton from "@/components/AppButton.vue";
 export default {
   components: {
     AppImage,
     AppDescription,
+    AppButton,
   },
   props: ["inputData"],
 

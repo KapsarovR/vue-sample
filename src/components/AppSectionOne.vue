@@ -5,27 +5,18 @@
     </div>
     <div class="content-right">
       <app-title class="content-text" :title="'My kind of life'" />
-      <ol class="content-inner">
-        <li class="option" v-for="(item, index) in inputData" :key="index">
-          {{ item.text }}
-          <ul
-            class="content-menu"
-            v-for="(subItem, subIndex) in item.items"
-            :key="subIndex"
-          >
-            <li class="option">{{ subItem.title }}</li>
-          </ul>
-        </li>
-      </ol>
+      <app-list :inputData="inputData" />
     </div>
   </div>
 </template>
 
 <script>
-import AppTitle from "./AppTitle.vue";
+import AppTitle from "@/components/AppTitle.vue";
+import AppList from "@/components/AppList.vue";
 export default {
   components: {
     AppTitle,
+    AppList,
   },
   props: ["inputData"],
 };
@@ -52,20 +43,5 @@ export default {
 .content-right {
   width: 50%;
   background-color: #ff6347;
-}
-
-.content-inner {
-  font-size: 25px;
-  padding: 1%;
-}
-
-.content-menu {
-  font-size: 25px;
-}
-
-.option {
-  width: 45%;
-  margin: auto;
-  padding: 3px;
 }
 </style>
