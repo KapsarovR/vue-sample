@@ -28,6 +28,7 @@ export default {
   background: transparent;
   border: 1px solid #4a87a4;
   transition: 0.7s all ease-in-out;
+  cursor: pointer;
 
   &:hover {
     background: #30a5e0;

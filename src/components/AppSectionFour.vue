@@ -1,9 +1,11 @@
 <template>
   <div class="section-four">
-    <div class="first-image" v-for="(item, index) in inputData" :key="index">
+    <div class="card-wrapper" v-for="(item, index) in inputData" :key="index">
       <app-image :image="item.image" />
-      <app-button @handleClick="like" :buttonTitle="'Like'" />
-      <!-- <button @click="like(index)">Like</button> -->
+      <app-button 
+        @handleClick="like" 
+        :buttonTitle="'Like'" 
+        :index="index" />
       <app-description :description="item.counter" />
     </div>
   </div>
@@ -35,7 +37,7 @@ export default {
   align-items: flex-start;
 }
 
-.first-image {
+.card-wrapper {
   display: flex;
   width: 33.3%;
   flex-wrap: wrap;

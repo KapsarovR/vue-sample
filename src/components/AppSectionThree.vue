@@ -1,14 +1,19 @@
 <template>
   <div class="section-three">
-    <div class="cube" v-for="(item, index) in inputData" :key="index">
-      <app-title class="title__wrapper" :title="item.title" />
-      <div>
+    <div class="card-wrapper" v-for="(item, index) in inputData" :key="index">
+      <div class="card-wrapper__top">
+        <app-title class="title__wrapper" :title="item.title" />
+      </div>
+      <div class="card-wrapper__bottom">
         <app-button
-          @handleClick="disLike"
+          @handleClick="dislike"
           :buttonTitle="'DisLike'"
           :index="index"
         />
-        <app-button @handleClick="like" :buttonTitle="'Like'" />
+        <app-button 
+          @handleClick="like" 
+          :buttonTitle="'Like'" 
+          :index="index" />
         <app-description
           class="description__wrapper"
           :description="'Like ' + item.counter"
@@ -43,18 +48,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.title__wrapper {
-  text-align: center;
-  color: #ffffff;
-}
-
-.description__wrapper {
-  display: flex;
-  justify-content: center;
-}
 .section-three {
-  .cube {
+  display: flex;
+  .card-wrapper {
+    height: 400px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     width: 33.3%;
+
+    .title {
+      &__wrapper {
+        text-align: center;
+        color: #ffffff;
+      }
+    }
+
+    .description {
+      &__wrapper {
+        display: flex;
+        justify-content: center;
+      }
+    }
 
     &:nth-child(1) {
       background: #7fff00;
@@ -70,7 +87,7 @@ export default {
   }
 }
 @media only screen and (max-width: 425px) {
-  .section-three > .cube {
+  .section-three > .card-wrapper {
     width: 100%;
   }
 }

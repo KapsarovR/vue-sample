@@ -43,5 +43,6 @@ export default {
 .content-right {
   width: 50%;
   background-color: #ff6347;
+  padding: 2%;
 }
 </style>

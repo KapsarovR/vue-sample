@@ -26,9 +26,6 @@ export default {
     inputData: {
       type: Array,
     },
-    title: {
-      type: String,
-    },
   },
 };
 </script>
