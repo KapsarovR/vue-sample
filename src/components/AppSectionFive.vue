@@ -25,8 +25,7 @@
     </form>
     <app-button 
       @handleClick="submit" 
-      :buttonTitle="'Submit'" 
-      :index="index" />
+      :buttonTitle="'Submit'" />
   </div>
 </template>
 
