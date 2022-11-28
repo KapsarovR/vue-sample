@@ -7,7 +7,6 @@
         v-model="form.firstName"
         name="First Name"
         placeholder="Enter your Frst Name"
-        required
       />
       <app-description :description="item.message + 'Last Name'" />
       <input
@@ -15,7 +14,6 @@
         v-model="form.lastName"
         name="Last Name"
         placeholder="Enter your Last Name"
-        required
       />
       <app-description :description="item.message + 'Email'" />
       <input
@@ -23,20 +21,21 @@
         v-model="form.email"
         name="email"
         placeholder="Enter your Email"
-        required
       />
-
-      <br />
-      <button @click="submit">Submit</button>
     </form>
+    <app-button 
+      @handleClick="submit" 
+      :buttonTitle="'Submit'" />
   </div>
 </template>
 
 <script>
 import AppDescription from "@/components/AppDescription.vue";
+import AppButton from "./AppButton.vue";
 export default {
   components: {
     AppDescription,
+    AppButton,
   },
   props: ["inputData"],
   data() {
@@ -50,6 +49,13 @@ export default {
   },
   methods: {
     submit() {
+      if (
+        this.form.firstName === "" ||
+        this.form.lastName === "" ||
+        this.form.email === ""
+      ) {
+        return false;
+      }
       alert(
         this.form.firstName + " " + this.form.lastName + " " + this.form.email
       );
@@ -58,7 +64,7 @@ export default {
 };
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 .contact {
   background: #f8f8ff;
   width: 50%;
@@ -71,7 +77,7 @@ export default {
 input {
   width: 50%;
   margin-bottom: 10px;
-  border-radius: 10px;
+  border-radius: none;
   padding: 10px;
   border: 2px solid #e9967a;
 }
@@ -82,6 +88,11 @@ button {
   color: #e9967a;
   background: #ffffff;
   font-size: 15px;
-  border-radius: 5px;
+  border-radius: none;
+
+  &:hover {
+    background: #e9967a;
+    color: #ffffff;
+  }
 }
 </style>

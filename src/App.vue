@@ -192,32 +192,6 @@ p {
   margin: 0;
 }
 
-.cube {
-  height: 400px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.section-two,
-.section-three {
-  display: flex;
-}
-
-.section-buuton {
-  display: flex;
-  justify-content: space-around;
-  padding: 1%;
-}
-
-.btn {
-  padding: 8px 12px;
-  text-align: center;
-  cursor: pointer;
-}
-
 @media only screen and (max-width: 768px) {
   .content-menu {
     font-size: 16px;
@@ -263,7 +237,7 @@ p {
     font-size: 15px;
   }
 
-  .contact {
+  .contact{
     width: 100%;
   }
 
