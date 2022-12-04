@@ -48,44 +48,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.section-three {
-  display: flex;
-  .card-wrapper {
-    height: 400px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 33.3%;
 
-    .title {
-      &__wrapper {
-        text-align: center;
-        color: #ffffff;
-      }
-    }
 
-    .description {
-      &__wrapper {
-        display: flex;
-        justify-content: center;
-      }
-    }
-
-    &:nth-child(1) {
-      background: #7fff00;
-    }
-
-    &:nth-child(2) {
-      background: #008000;
-    }
-
-    &:nth-child(3) {
-      background-color: #0000ff;
-    }
-  }
-}
 @media only screen and (max-width: 425px) {
   .section-three > .card-wrapper {
     width: 100%;

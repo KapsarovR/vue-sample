@@ -16,6 +16,8 @@
 
     <app-section-five :inputData="sectionFive" />
 
+    <app-section-six />
+
     <app-footer />
   </div>
 </template>
@@ -28,6 +30,7 @@ import AppSectionTwo from "@/components/AppSectionTwo.vue";
 import AppSectionThree from "@/components/AppSectionThree.vue";
 import AppSectionFour from "@/components/AppSectionFour.vue";
 import AppSectionFive from "@/components/AppSectionFive.vue";
+import AppSectionSix from '@/components/AppSectionSix.vue';
 
 export default {
   name: "App",
@@ -39,6 +42,7 @@ export default {
     AppSectionThree,
     AppSectionFour,
     AppSectionFive,
+    AppSectionSix,
   },
   data() {
     return {
@@ -183,7 +187,7 @@ export default {
 };
 </script>
 
-<style lang="css">
+<style lang="scss">
 body {
   margin: 0;
 }
@@ -191,6 +195,7 @@ h2,
 p {
   margin: 0;
 }
+@import "@/assets/scss/section.scss" ;
 
 @media only screen and (max-width: 768px) {
   .content-menu {
