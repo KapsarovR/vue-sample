@@ -14,6 +14,15 @@
         </li>
       </ul>
     </nav>
+    <div
+      class="hamburger"
+      @click="hamburgerOpen = !hamburgerOpen"
+      :class="hamburgerOpen ? 'hamburger--is-open' : ''"
+    >
+      <div class="hamburger__item hamburger__item--first"></div>
+      <div class="hamburger__item hamburger__item--middle"></div>
+      <div class="hamburger__item hamburger__item--last"></div>
+    </div>
   </div>
 </template>
 
@@ -21,6 +30,8 @@
 export default {
   data() {
     return {
+        hamburgerOpen: false,
+    
       navigationItems: [
         {
           name: "Home",
@@ -39,48 +50,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.header {
-  display: flex;
-  justify-content: space-between;
-  background: #ff6347cc;
-  height: 50px;
-}
-
-.menu {
-  margin: auto;
-
-  &-one {
-    display: inline-block;
-    font-size: 20px;
-    margin: 10px;
-  }
-
-  &-inner {
-    text-decoration: none;
-    color: #ffffff;
-  }
-}
-
-.image {
-    width: 100%;
-    height: 100%;
-}
-
-.title-content {
-  background: #619b6a66;
-  margin: 0;
-  display: flex;
-  gap: 20px;
-  place-content: center;
-}
-
-.title-inner {
-  font-size: 25px;
-  font-weight: 600;
-  color: #ffffff;
-  line-height: normal;
-  letter-spacing: 5px;
-}
-</style>

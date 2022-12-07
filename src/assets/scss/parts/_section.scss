@@ -107,6 +107,39 @@
       flex-wrap: wrap;
     }
   }
+
+  &-five {
+    background: #f8f8ff;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+    margin-top: 25px;
+
+    input {
+      width: 50%;
+      border-radius: none;
+      padding: 10px;
+      border: 2px solid #e9967a;
+      margin: 0 auto 10px auto;
+      display: block;
+    }
+
+    button {
+      padding: 10px 30px;
+      border: 2px solid #e9967a;
+      color: #e9967a;
+      background: #ffffff;
+      font-size: 15px;
+      border-radius: none;
+
+      &:hover {
+        background: #e9967a;
+        color: #ffffff;
+      }
+    }
+  }
+
   &-six {
     display: flex;
     justify-content: center;
@@ -119,5 +152,100 @@
       padding: 10px;
       margin-top: 25px;
     }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .content-menu {
+    font-size: 16px;
+  }
+
+  .header {
+    height: 40px;
+  }
+
+  .section-one {
+    display: flex;
+  }
+
+  .section-four .card-wrapper,
+  .section-two .card-wrapper {
+    width: 50%;
+  }
+
+  .section-two > .cube,
+  .section-three > .cube {
+    width: 100%;
+  }
+
+  .section-two,
+  .section-three {
+    flex-wrap: wrap;
+  }
+
+  .section-two > .content-left,
+  .section-two > .content-right {
+    width: 100%;
+  }
+
+  .btn {
+    padding: 10px 25px !important;
+  }
+
+  .content-text {
+    font-size: 25px;
+  }
+
+  .option {
+    width: 60%;
+  }
+
+  .content-inner {
+    font-size: 20px;
+  }
+
+  .content-menu {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .header {
+    height: 40px !important;
+  }
+
+  .section-one {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section-one .content-right,
+  .section-one .content-left {
+    width: 100%;
+  }
+
+  .section-one .content-right,
+  .section-six .wrapper__test{
+    padding: 0;
+  }
+
+  .section-four {
+    display: block;
+  }
+
+  .section-four .card-wrapper,
+  .section-two .card-wrapper {
+    width: 100%;
+  }
+
+  .section-five {
+    width: 100%;
+  }
+
+  .section-six {
+    display: block;
+  }
+
+  .section-six .wrapper__test {
+    width: 100%;
   }
 }

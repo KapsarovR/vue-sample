@@ -1,5 +1,5 @@
 <template>
-  <section class="contact">
+  <section class="section-five">
     <form v-for="(item, index) in inputData" :key="index">
       <app-label :label="item.message + 'Frst Name'" />
       <app-input
@@ -72,37 +72,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.contact {
-  background: #f8f8ff;
-  width: 50%;
-  margin: auto;
-  text-align: center;
-  padding: 10px;
-  margin-top: 25px;
-}
-
-input {
-  width: 50%;
-  border-radius: none;
-  padding: 10px;
-  border: 2px solid #e9967a;
-  margin: 0 auto 10px auto;
-  display: block;
-}
-
-button {
-  padding: 10px 30px;
-  border: 2px solid #e9967a;
-  color: #e9967a;
-  background: #ffffff;
-  font-size: 15px;
-  border-radius: none;
-
-  &:hover {
-    background: #e9967a;
-    color: #ffffff;
-  }
-}
-</style>
