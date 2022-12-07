@@ -63,6 +63,11 @@ export default {
   }
 }
 
+.image {
+    width: 100%;
+    height: 100%;
+}
+
 .title-content {
   background: #619b6a66;
   margin: 0;

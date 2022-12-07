@@ -31,15 +31,6 @@ export default {
 };
 </script>
 
-<style lang="css" scoped>
-.section-four {
-  display: flex;
-  align-items: flex-start;
-}
+<style lang="scss" scoped>
 
-.card-wrapper {
-  display: flex;
-  width: 33.3%;
-  flex-wrap: wrap;
-}
 </style>

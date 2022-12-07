@@ -1,41 +1,41 @@
 <template>
-  <div class="contact">
+  <section class="contact">
     <form v-for="(item, index) in inputData" :key="index">
-      <app-description :description="item.message + 'Frst Name'" />
-      <input
-        type="text"
-        v-model="form.firstName"
-        name="First Name"
-        placeholder="Enter your Frst Name"
+      <app-label :label="item.message + 'Frst Name'" />
+      <app-input
+        @onInput="setFirstName"
+        :type="'text'"
+        :name="'First Name'"
+        :placeholder="'Enter your Frst Name'"
       />
-      <app-description :description="item.message + 'Last Name'" />
-      <input
-        type="text"
-        v-model="form.lastName"
-        name="Last Name"
-        placeholder="Enter your Last Name"
+      <app-label :label="item.message + 'Last Name'" />
+      <app-input
+        @onInput="setLastName"
+        :type="'text'"
+        :name="'Last Name'"
+        :placeholder="'Enter your Last Name'"
       />
-      <app-description :description="item.message + 'Email'" />
-      <input
-        type="email"
-        v-model="form.email"
-        name="email"
-        placeholder="Enter your Email"
+      <app-label :label="item.message + 'Email'" />
+      <app-input
+        @onInput="setEmail"
+        :type="'email'"
+        :name="'email'"
+        :placeholder="'Enter your Email'"
       />
     </form>
-    <app-button 
-      @handleClick="submit" 
-      :buttonTitle="'Submit'" />
-  </div>
+    <app-button @handleClick="submit" :buttonTitle="'Submit'" />
+  </section>
 </template>
 
 <script>
-import AppDescription from "@/components/AppDescription.vue";
-import AppButton from "./AppButton.vue";
+import AppButton from "@/components/AppButton.vue";
+import AppLabel from "@/components/AppLabel.vue";
+import AppInput from "@/components/AppInput.vue";
 export default {
   components: {
-    AppDescription,
     AppButton,
+    AppLabel,
+    AppInput,
   },
   props: ["inputData"],
   data() {
@@ -60,6 +60,15 @@ export default {
         this.form.firstName + " " + this.form.lastName + " " + this.form.email
       );
     },
+    setFirstName(firstName) {
+      this.form.firstName = firstName;
+    },
+    setLastName(lastName) {
+      this.form.lastName = lastName;
+    },
+    setEmail(email) {
+      this.form.email = email;
+    },
   },
 };
 </script>
@@ -76,10 +85,11 @@ export default {
 
 input {
   width: 50%;
-  margin-bottom: 10px;
   border-radius: none;
   padding: 10px;
   border: 2px solid #e9967a;
+  margin: 0 auto 10px auto;
+  display: block;
 }
 
 button {

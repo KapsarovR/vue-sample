@@ -22,27 +22,6 @@ export default {
 };
 </script>
 
-<style lang="css">
-.section-one {
-  display: flex;
-}
+<style lang="scss" scoped>
 
-.content-left {
-  width: 50%;
-}
-
-.image {
-  width: 100%;
-  height: 100%;
-}
-
-.content-text {
-  text-align: center;
-}
-
-.content-right {
-  width: 50%;
-  background-color: #ff6347;
-  padding: 2%;
-}
 </style>
