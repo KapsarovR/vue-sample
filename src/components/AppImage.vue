@@ -8,10 +8,3 @@ export default {
   props: ["image"],
 };
 </script>
-
-<style lang="scss" scoped>
-.image {
-  width: 100%;
-  height: 100%;
-}
-</style>

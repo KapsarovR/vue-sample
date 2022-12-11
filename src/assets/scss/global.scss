@@ -1,10 +1,11 @@
 //general style
+@import "./colors";
 @import "./common/layout";
 
 
 //commponents
-@import "./parts/section";
-@import "./parts/heder";
 @import "./parts/footer";
+@import "./parts/hamburger";
+@import "./parts/header";
 @import "./parts/list";
-@import "./parts/hamburger"
+@import "./parts/section";

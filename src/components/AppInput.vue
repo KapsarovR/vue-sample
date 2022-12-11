@@ -34,7 +34,3 @@ methods: {
 }
 };
 </script>
-
-<style lang="scss">
-
-</style>

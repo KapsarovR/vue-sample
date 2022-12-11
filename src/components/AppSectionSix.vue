@@ -15,11 +15,9 @@
 </template>
 
 <script>
-// import AppInput from "@/components/AppInput.vue";
 import AppLabel from "@/components/AppLabel.vue";
 export default {
   components: {
-    // AppInput,
     AppLabel
   },
   props: ["inputData"],

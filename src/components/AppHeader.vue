@@ -14,24 +14,17 @@
         </li>
       </ul>
     </nav>
-    <div
-      class="hamburger"
-      @click="hamburgerOpen = !hamburgerOpen"
-      :class="hamburgerOpen ? 'hamburger--is-open' : ''"
-    >
-      <div class="hamburger__item hamburger__item--first"></div>
-      <div class="hamburger__item hamburger__item--middle"></div>
-      <div class="hamburger__item hamburger__item--last"></div>
-    </div>
+    <hamburger-menu />
   </div>
 </template>
 
 <script>
+import HamburgerMenu from "@/components/HamburgerMenu.vue";
+
 export default {
+  components: { HamburgerMenu },
   data() {
     return {
-        hamburgerOpen: false,
-    
       navigationItems: [
         {
           name: "Home",

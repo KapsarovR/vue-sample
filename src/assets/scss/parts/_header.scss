@@ -1,8 +1,12 @@
 .header {
+  height: 50px;
   display: flex;
   justify-content: space-between;
-  background: #ff6347cc;
-  height: 50px;
+  background: $brand-peachpuff;
+
+  @media (max-width: 768px) {
+    height: 40px;
+  }
 }
 
 .menu {
@@ -16,13 +20,11 @@
 
   &-inner {
     text-decoration: none;
-    color: #ffffff;
+    color: $white;
   }
-}
-
-.image {
-  width: 100%;
-  height: 100%;
+  @media (max-width: 425px) {
+    display: none;
+  }
 }
 
 .title-content {
@@ -36,7 +38,7 @@
 .title-inner {
   font-size: 25px;
   font-weight: 600;
-  color: #ffffff;
+  color: $white;
   line-height: normal;
   letter-spacing: 5px;
 }
