@@ -29,20 +29,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.content-inner {
-  font-size: 25px;
-  padding: 1%;
-
-  &-content-menu {
-    font-size: 25px;
-  }
-
-  .option {
-    width: 45%;
-    margin: auto;
-    padding: 3px;
-  }
-}
-</style>

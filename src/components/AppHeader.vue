@@ -14,11 +14,15 @@
         </li>
       </ul>
     </nav>
+    <hamburger-menu />
   </div>
 </template>
 
 <script>
+import HamburgerMenu from "@/components/HamburgerMenu.vue";
+
 export default {
+  components: { HamburgerMenu },
   data() {
     return {
       navigationItems: [
@@ -39,48 +43,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.header {
-  display: flex;
-  justify-content: space-between;
-  background: #ff6347cc;
-  height: 50px;
-}
-
-.menu {
-  margin: auto;
-
-  &-one {
-    display: inline-block;
-    font-size: 20px;
-    margin: 10px;
-  }
-
-  &-inner {
-    text-decoration: none;
-    color: #ffffff;
-  }
-}
-
-.image {
-    width: 100%;
-    height: 100%;
-}
-
-.title-content {
-  background: #619b6a66;
-  margin: 0;
-  display: flex;
-  gap: 20px;
-  place-content: center;
-}
-
-.title-inner {
-  font-size: 25px;
-  font-weight: 600;
-  color: #ffffff;
-  line-height: normal;
-  letter-spacing: 5px;
-}
-</style>

@@ -1,0 +1,44 @@
+.header {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  background: $brand-peachpuff;
+
+  @media (max-width: 768px) {
+    height: 40px;
+  }
+}
+
+.menu {
+  margin: auto;
+
+  &-one {
+    display: inline-block;
+    font-size: 20px;
+    margin: 10px;
+  }
+
+  &-inner {
+    text-decoration: none;
+    color: $white;
+  }
+  @media (max-width: 425px) {
+    display: none;
+  }
+}
+
+.title-content {
+  background: #619b6a66;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+  place-content: center;
+}
+
+.title-inner {
+  font-size: 25px;
+  font-weight: 600;
+  color: $white;
+  line-height: normal;
+  letter-spacing: 5px;
+}

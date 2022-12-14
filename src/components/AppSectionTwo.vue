@@ -24,7 +24,3 @@ export default {
   props: ["inputData"],
 };
 </script>
-
-<style lang="scss" scoped>
-
-</style>

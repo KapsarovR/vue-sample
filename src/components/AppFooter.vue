@@ -13,16 +13,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.footer {
-  display: flex;
-  justify-content: center;
-  background-color: #ff6347cc;
-  text-align: center;
-  color: #000000;
-  font-size: 16px;
-  font-weight: 700;
-  padding: 10px;
-}
-</style>

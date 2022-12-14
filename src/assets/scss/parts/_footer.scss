@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: $brand-peachpuff;
+  text-align: center;
+  color: $black;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 13px;
+    font-weight: 700;
+  }
+}
