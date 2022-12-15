@@ -1,7 +1,7 @@
 <template>
   <div
     class="hamburger"
-    @click="hamburgerOpen = !hamburgerOpen"
+    @click="handleClick"
     :class="hamburgerOpen ? 'hamburger--open' : ''"
   >
     <div class="hamburger__item hamburger__item--first"></div>
@@ -18,5 +18,11 @@ export default {
       hamburgerOpen: false,
     };
   },
+  methods:{
+    handleClick() {
+      this.hamburgerOpen = !this.hamburgerOpen;
+      this.$emit('handleClick' , this.hamburgerOpen)
+    }
+  }
 };
 </script>

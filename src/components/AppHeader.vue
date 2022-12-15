@@ -14,17 +14,33 @@
         </li>
       </ul>
     </nav>
-    <hamburger-menu />
+    <hamburger-menu @handleClick="HandleSideBar" />
+    <app-side-bar v-if="IsSidebarOpen">
+      <ul class="menu__wrapper">
+        <li
+          class="menu-one"
+          v-for="(item, index) in navigationItems"
+          :key="index"
+        >
+          <a class="menu-inner" href="#">{{ item.name }}</a>
+        </li>
+      </ul>
+    </app-side-bar>
   </div>
 </template>
 
 <script>
 import HamburgerMenu from "@/components/HamburgerMenu.vue";
+import AppSideBar from "@/components/AppSideBar.vue";
 
 export default {
-  components: { HamburgerMenu },
+  components: {
+    AppSideBar,
+    HamburgerMenu,
+  },
   data() {
     return {
+      IsSidebarOpen: false,
       navigationItems: [
         {
           name: "Home",
@@ -40,6 +56,11 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    HandleSideBar(IsSidebarOpen) {
+      this.IsSidebarOpen = IsSidebarOpen;
+    },
   },
 };
 </script>
