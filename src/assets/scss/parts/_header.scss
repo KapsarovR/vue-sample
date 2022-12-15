@@ -7,38 +7,35 @@
   @media (max-width: 768px) {
     height: 40px;
   }
-}
 
-.menu {
-  margin: auto;
+  .menu {
+    margin: auto;
 
-  &-one {
-    display: inline-block;
-    font-size: 20px;
-    margin: 10px;
+    &-one {
+      display: inline-block;
+      font-size: 20px;
+      margin: 10px;
+    }
+
+    &-inner {
+      text-decoration: none;
+      color: $white;
+    }
+    @media (max-width: 425px) {
+      display: none;
+    }
   }
 
-  &-inner {
-    text-decoration: none;
-    color: $white;
-  }
-  @media (max-width: 425px) {
-    display: none;
-  }
-}
+  .menu__wrapper{
+    @media (max-width: 425px) {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin: auto;
 
-.title-content {
-  background: #619b6a66;
-  margin: 0;
-  display: flex;
-  gap: 20px;
-  place-content: center;
-}
-
-.title-inner {
-  font-size: 25px;
-  font-weight: 600;
-  color: $white;
-  line-height: normal;
-  letter-spacing: 5px;
+    .menu-one{
+      font-size: 22px;
+    }
+  }
+  }
 }
