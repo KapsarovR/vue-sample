@@ -30,7 +30,7 @@ import AppSectionTwo from "@/components/AppSectionTwo.vue";
 import AppSectionThree from "@/components/AppSectionThree.vue";
 import AppSectionFour from "@/components/AppSectionFour.vue";
 import AppSectionFive from "@/components/AppSectionFive.vue";
-import AppSectionSix from '@/components/AppSectionSix.vue';
+import AppSectionSix from "@/components/AppSectionSix.vue";
 
 export default {
   name: "App",
@@ -188,5 +188,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/assets/scss/global.scss" ;
+@import "@/assets/scss/global.scss";
 </style>

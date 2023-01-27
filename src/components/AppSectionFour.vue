@@ -1,24 +1,34 @@
 <template>
-  <div class="section-four">
-    <div class="card-wrapper" v-for="(item, index) in inputData" :key="index">
-      <app-image :image="item.image" />
-      <app-button 
-        @handleClick="like" 
+  <app-section
+    :className="'section-four'"
+    :showLeftWrapper="false"
+    :showRightWrapper="false"
+  >
+    <app-card
+      v-for="(item, index) in inputData"
+      :key="index"
+      :image="item.image"
+      :description="item.counter"
+    >
+      <template v-slot:button>
+        <app-button @handleClick="like" 
         :buttonTitle="'Like'" 
-        :index="index" />
-      <app-description :description="item.counter" />
-    </div>
-  </div>
+        :index="index"
+          >Like</app-button
+        >
+      </template>
+    </app-card>
+  </app-section>
 </template>
 
 <script>
-import AppImage from "@/components/AppImage.vue";
-import AppDescription from "@/components/AppDescription.vue";
+import AppCard from "@/components/templates/AppCard.vue";
+import AppSection from "@/components/templates/AppSection.vue";
 import AppButton from "@/components/AppButton.vue";
 export default {
   components: {
-    AppImage,
-    AppDescription,
+    AppCard,
+    AppSection,
     AppButton,
   },
   props: ["inputData"],
@@ -30,4 +40,3 @@ export default {
   },
 };
 </script>
-

@@ -1,25 +1,24 @@
 <template>
-  <div class="section-two">
-    <div class="card-wrapper" v-for="(item, index) in inputData" :key="index">
-      <app-image class="image__wrapper" :image="item.image" />
-      <app-title class="title__wrapper" :title="item.title" />
-      <app-description
-        class="description__wrapper"
-        :description="item.description"
-      />
-    </div>
-  </div>
+  <app-section :className="'section-two'">
+    <app-card
+      v-for="(item, index) in inputData"
+      :key="index"
+      :image="item.image"
+      :title="item.title"
+      :description="item.description"
+    >
+    </app-card>
+  </app-section>
 </template>
 
 <script>
-import AppTitle from "@/components/AppTitle.vue";
-import AppDescription from "@/components/AppDescription.vue";
-import AppImage from "@/components/AppImage.vue";
+import AppCard from "@/components/templates/AppCard.vue";
+import AppSection from "@/components/templates/AppSection.vue";
+
 export default {
   components: {
-    AppTitle,
-    AppDescription,
-    AppImage,
+    AppCard,
+    AppSection,
   },
   props: ["inputData"],
 };

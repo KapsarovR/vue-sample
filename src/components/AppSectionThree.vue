@@ -1,37 +1,40 @@
 <template>
-  <div class="section-three">
-    <div class="card-wrapper" v-for="(item, index) in inputData" :key="index">
-      <div class="card-wrapper__top">
-        <app-title class="title__wrapper" :title="item.title" />
-      </div>
-      <div class="card-wrapper__bottom">
+  <app-section
+    className="section-three"
+    :showLeftWrapper="false"
+    :showRightWrapper="false"
+  >
+    <app-card
+      v-for="(item, index) in inputData"
+      :key="index"
+      :title="item.title"
+      :description="'Like' + '' + '' + item.counter"
+    >
+      <template v-slot:button>
         <app-button
           @handleClick="dislike"
           :buttonTitle="'DisLike'"
           :index="index"
-        />
-        <app-button 
-          @handleClick="like" 
-          :buttonTitle="'Like'" 
-          :index="index" />
-        <app-description
-          class="description__wrapper"
-          :description="'Like ' + item.counter"
-        />
-      </div>
-    </div>
-  </div>
+        >
+          DisLike
+        </app-button>
+        <app-button @handleClick="like" :buttonTitle="'Like'" :index="index">
+          Like
+        </app-button>
+      </template>
+    </app-card>
+  </app-section>
 </template>
 
 <script>
-import AppTitle from "@/components/AppTitle.vue";
-import AppDescription from "@/components/AppDescription.vue";
+import AppCard from "@/components/templates/AppCard.vue";
+import AppSection from "@/components/templates/AppSection.vue";
 import AppButton from "@/components/AppButton.vue";
 export default {
   components: {
-    AppTitle,
-    AppDescription,
+    AppCard,
     AppButton,
+    AppSection,
   },
   props: ["inputData"],
 
@@ -48,8 +51,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-
 @media only screen and (max-width: 425px) {
   .section-three > .card-wrapper {
     width: 100%;

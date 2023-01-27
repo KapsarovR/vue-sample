@@ -1,30 +1,32 @@
 <template>
-  <section class="section-six">
-    <div class="wrapper__test">
-    <h3>This is a graet Message</h3>
-    <button v-on:click="reverseMessage">Reverse Message</button>
-    <input v-model="message" />
-    <p>{{ message }}</p>
-    </div>
-    <div class="wrapper__test">
-    <input v-model="message" :placeholder="'edit me'" />
-    <p>Message is: {{ message }}</p>
-    <app-label :label="message " />
-  </div>
-</section>
+  <app-section :className="'section-six'">
+    <template v-slot:left>
+      <h3>This is a graet Message</h3>
+      <button v-on:click="reverseMessage">Reverse Message</button>
+      <input v-model="message" />
+      <p>{{ message }}</p>
+    </template>
+    <template v-slot:right>
+      <input v-model="message" :placeholder="'edit me'" />
+      <p>Message is: {{ message }}</p>
+      <app-label :label="message" />
+    </template>
+  </app-section>
 </template>
 
 <script>
+import AppSection from "@/components/templates/AppSection.vue";
 import AppLabel from "@/components/AppLabel.vue";
 export default {
   components: {
-    AppLabel
+    AppSection,
+    AppLabel,
   },
   props: ["inputData"],
   data() {
     return {
-        message: ''
-    }
+      message: "",
+    };
   },
   methods: {
     reverseMessage: function () {
@@ -34,6 +36,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>

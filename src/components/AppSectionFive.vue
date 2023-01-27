@@ -1,5 +1,5 @@
 <template>
-  <section class="section-five">
+  <app-section :className="'section-five'">
     <form v-for="(item, index) in inputData" :key="index">
       <app-label :label="item.message + 'Frst Name'" />
       <app-input
@@ -24,16 +24,18 @@
       />
     </form>
     <app-button @handleClick="submit" :buttonTitle="'Submit'" />
-  </section>
+  </app-section>
 </template>
 
 <script>
 import AppButton from "@/components/AppButton.vue";
+import AppSection from "@/components/templates/AppSection.vue";
 import AppLabel from "@/components/AppLabel.vue";
 import AppInput from "@/components/AppInput.vue";
 export default {
   components: {
     AppButton,
+    AppSection,
     AppLabel,
     AppInput,
   },

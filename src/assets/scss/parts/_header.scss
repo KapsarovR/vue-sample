@@ -21,21 +21,26 @@
       text-decoration: none;
       color: $white;
     }
+
     @media (max-width: 425px) {
       display: none;
     }
   }
 
-  .menu__wrapper{
+  .menu__wrapper {
     @media (max-width: 425px) {
       display: flex;
       justify-content: center;
       flex-direction: column;
       margin: auto;
+      text-decoration: none;
+      color: $white;
 
-    .menu-one{
-      font-size: 22px;
+      &--item {
+        display: inline-block;
+        font-size: 20px;
+        margin: 10px;
+      }
     }
-  }
   }
 }
