@@ -24,9 +24,7 @@ export default {
         title:{
             type: String
         },
-        description:{
-            type: String
-        },
+        description:[String , Number]
     },
     components: {
     AppTitle,
