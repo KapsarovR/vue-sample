@@ -36,16 +36,16 @@
             </th>
           </tr>
         </tfoot>
-        <thead v-for="(persons, index) in persons" :key="index">
+        <thead v-for="(person, index) in persons" :key="index">
           <tr>
             <th>
               <span>{{ index + 1 }}</span>
             </th>
-            <th>{{ persons.firstName }}</th>
-            <th>{{ persons.lastName }}</th>
+            <th>{{ person.firstName }}</th>
+            <th>{{ person.lastName }}</th>
             <th>
-              <button @click="editPerson(index, persons.title)">
-                {{ persons.edit ? "Save" : "Edit" }}
+              <button @click="editPerson(index)">
+                {{ person.edit ? "Save" : "Edit" }}
               </button>
               <button @click="removePerson(index)">X</button>
             </th>
@@ -66,6 +66,7 @@ export default {
       newPerson: {
         firstName: "",
         lastName: "",
+        edit: false,
       },
 
       id: "ID",
@@ -113,18 +114,20 @@ export default {
     };
   },
   methods: {
-    editPerson(index, title) {
-      if (this.persons[index].edit) {
-        this.persons[index].firstName = title;
-      }
-      this.persons[index].edit = !this.persons[index].edit;
-    },
+    // editPerson(index) {
+    //   if (this.persons[index].edit) {
+    //     this.persons[index].firstName = title;
+    //   }
+    //   this.persons[index].edit = !this.persons[index].edit;
+    // },
     addPerson() {
       const id = this.persons.length + 1;
-      this.persons.push({ id, ...this.newPerson });
-      this.newPerson = { firstName: "", lastName: "" };
-      if (this.newPerson.firstName === "" || this.newPerson.lastName === "") {
+      if (this.newPerson.firstName === "" && this.newPerson.lastName === "") {
+        alert("You");
         return false;
+      } else {
+        this.persons.push({ id, ...this.newPerson });
+        this.newPerson = { firstName: "", lastName: "" , edit: false };
       }
     },
     removePerson(index) {
