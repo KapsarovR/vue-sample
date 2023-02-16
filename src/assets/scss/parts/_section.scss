@@ -227,38 +227,30 @@
     background-color: #eee;
     margin: 3%;
 
-    .card-wrapper {
-      padding: 0;
+    .table-list {
+      width: 100%;
 
-      table.table-list {
-        width: 100%;
+      thead {
+        background-color: #ddd;
 
         tr {
-          width: 100% !important;
-        }
-
-        thead {
-          background-color: #ddd;
-
-          tr {
-            th {
-              padding: 10px;
-            }
+          th {
+            padding: 10px;
           }
         }
+      }
 
-        tfoot {
-          tr {
-            td {
-              input {
-                padding: 10px;
-                border: 1px solid transparent;
-                display: block;
-                outline: none;
+      tfoot {
+        tr {
+          td {
+            input {
+              padding: 10px;
+              border: 1px solid transparent;
+              display: block;
+              outline: none;
 
-                &:focus {
-                  border-color: #eee;
-                }
+              &:focus {
+                border-color: #eee;
               }
             }
           }

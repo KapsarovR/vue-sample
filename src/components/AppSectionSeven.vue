@@ -4,13 +4,13 @@
     :showLeftWrapper="false"
     :showRightWrapper="false"
   >
-    <div class="card-wrapper">
+    <div>
       <table class="table-list">
         <thead>
           <tr>
             <th>{{ id }}</th>
-            <th>{{ name }}</th>
-            <th>{{ LastName }}</th>
+            <th>{{ firstName }}</th>
+            <th>{{ lastName }}</th>
             <th></th>
           </tr>
         </thead>
@@ -20,21 +20,15 @@
             <td>
               <input
                 type="text"
-                id="name"
-                v-model="newPerson.name"
+                v-model="newPerson.firstName"
                 placeholder="First Name"
-                @input="saveValue"
-                value="inputValue"
               />
             </td>
             <td>
               <input
                 type="text"
-                id="lastName"
                 v-model="newPerson.lastName"
                 placeholder="Last Name"
-                @input="saveValue"
-                value="inputValue"
               />
             </td>
             <th>
@@ -42,16 +36,16 @@
             </th>
           </tr>
         </tfoot>
-        <thead v-for="(task, index) in tasks" :key="index">
+        <thead v-for="(persons, index) in persons" :key="index">
           <tr>
             <th>
               <span>{{ index + 1 }}</span>
             </th>
-            <th>{{ task.name }}</th>
-            <th>{{ task.lastName }}</th>
+            <th>{{ persons.firstName }}</th>
+            <th>{{ persons.lastName }}</th>
             <th>
-              <button @click="editTask(index, task.title)">
-                {{ task.edit ? "Save" : "Edit" }}
+              <button @click="editPerson(index, persons.title)">
+                {{ persons.edit ? "Save" : "Edit" }}
               </button>
               <button @click="removePerson(index)">X</button>
             </th>
@@ -63,56 +57,55 @@
 </template>
 
 <script>
-import AppSection from "./templates/AppSection.vue";
+import AppSection from "@/components/templates/AppSection.vue";
 export default {
   components: { AppSection },
   props: ["inputData"],
   data() {
     return {
       newPerson: {
-        name: "",
+        firstName: "",
         lastName: "",
-        inputValue: "",
       },
 
       id: "ID",
-      name: "First Name",
-      LastName: "Last Name",
+      firstName: "First Name",
+      lastName: "Last Name",
 
-      tasks: [
+      persons: [
         {
           id: 1,
-          name: "Risto",
+          firstName: "Risto",
           lastName: "Kapsarov",
           edit: false,
         },
         {
           id: 2,
-          name: "Charles",
+          firstName: "Charles",
           lastName: "Leclerc",
           edit: false,
         },
         {
           id: 3,
-          name: "Tony",
+          firstName: "Tony",
           lastName: "Parker",
           edit: false,
         },
         {
           id: 4,
-          name: "Mick",
+          firstName: "Mick",
           lastName: "Schumacher",
           edit: false,
         },
         {
           id: 5,
-          name: "Shekel",
+          firstName: "Shekel",
           lastName: "O'neal",
           edit: false,
         },
         {
           id: 6,
-          name: "Koby",
+          firstName: "Koby",
           lastName: "Braynt",
           edit: true,
         },
@@ -120,28 +113,22 @@ export default {
     };
   },
   methods: {
-    saveValue(event) {
-      this.inputValue = event.target.value;
-    },
-
-    saveMessage() {
-      this.edit.push({ tasks: this.inputValue });
-      this.inputValue = "";
-    },
-
-    editTask(index, msg) {
-      if (this.tasks[index].edit) {
-        this.tasks[index].name = msg;
+    editPerson(index, title) {
+      if (this.persons[index].edit) {
+        this.persons[index].firstName = title;
       }
-      this.tasks[index].edit = !this.tasks[index].edit;
+      this.persons[index].edit = !this.persons[index].edit;
     },
     addPerson() {
-      const id = this.tasks.length + 1;
-      this.tasks.push({ id, ...this.newPerson });
-      this.newPerson = { name: "", lastName: "" };
+      const id = this.persons.length + 1;
+      this.persons.push({ id, ...this.newPerson });
+      this.newPerson = { firstName: "", lastName: "" };
+      if (this.newPerson.firstName === "" || this.newPerson.lastName === "") {
+        return false;
+      }
     },
     removePerson(index) {
-      this.tasks.splice(index, 1);
+      this.persons.splice(index, 1);
     },
   },
 };
