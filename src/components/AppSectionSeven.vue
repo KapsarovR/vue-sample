@@ -11,7 +11,14 @@
             <th>{{ id }}</th>
             <th>{{ firstName }}</th>
             <th>{{ lastName }}</th>
-            <th></th>
+            <th>
+              <div v-if="showModal">
+                <span class="clear_item">To dalete this item ?</span>
+                <br />
+                <button @click="removePerson">Yes</button>
+                <button @click="closePerson">No</button>
+              </div>
+            </th>
           </tr>
         </thead>
         <tfoot>
@@ -41,13 +48,30 @@
             <th>
               <span>{{ index + 1 }}</span>
             </th>
-            <th>{{ person.firstName }}</th>
-            <th>{{ person.lastName }}</th>
             <th>
-              <button @click="editPerson(index)">
-                {{ person.edit ? "Save" : "Edit" }}
+              <span v-if="!person.edit">{{ person.firstName }}</span>
+              <input
+                v-else
+                type="text"
+                v-model="person.firstName"
+                placeholder="First Name"
+              />
+            </th>
+            <th>
+              <span v-if="!person.edit">{{ person.lastName }}</span>
+              <input
+                v-else
+                type="text"
+                v-model="person.lastName"
+                placeholder="Last Name"
+              />
+            </th>
+            <th>
+              <button v-if="!person.edit" @click="editPerson(index)">
+                Edit
               </button>
-              <button @click="removePerson(index)">X</button>
+              <button v-else @click="savePerson(index)">Save</button>
+              <button @click="veryfyDelete(index)">X</button>
             </th>
           </tr>
         </thead>
@@ -63,6 +87,8 @@ export default {
   props: ["inputData"],
   data() {
     return {
+      showModal: false,
+      selectedIndex: null,
       newPerson: {
         firstName: "",
         lastName: "",
@@ -76,7 +102,7 @@ export default {
       persons: [
         {
           id: 1,
-          firstName: "Risto",
+          firstName: "Riste",
           lastName: "Kapsarov",
           edit: false,
         },
@@ -108,30 +134,39 @@ export default {
           id: 6,
           firstName: "Koby",
           lastName: "Braynt",
-          edit: true,
+          edit: false,
         },
       ],
     };
   },
   methods: {
-    // editPerson(index) {
-    //   if (this.persons[index].edit) {
-    //     this.persons[index].firstName = title;
-    //   }
-    //   this.persons[index].edit = !this.persons[index].edit;
-    // },
+    editPerson(index) {
+      this.persons[index].edit = true;
+    },
+    savePerson(index) {
+      this.persons[index].edit = false;
+    },
     addPerson() {
       const id = this.persons.length + 1;
       if (this.newPerson.firstName === "" && this.newPerson.lastName === "") {
-        alert("You");
         return false;
       } else {
         this.persons.push({ id, ...this.newPerson });
-        this.newPerson = { firstName: "", lastName: "" , edit: false };
+        this.newPerson = { firstName: "", lastName: "", edit: false };
       }
     },
-    removePerson(index) {
-      this.persons.splice(index, 1);
+    veryfyDelete(index) {
+      this.selectedIndex = index;
+      this.showModal = true;
+    },
+    removePerson() {
+      this.persons.splice(this.selectedIndex, 1);
+      this.selectedIndex = null;
+      this.showModal = false;
+    },
+    closePerson() {
+      this.showModal = false;
+      this.selectedIndex = null;
     },
   },
 };
