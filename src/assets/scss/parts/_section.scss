@@ -220,4 +220,47 @@
       }
     }
   }
+
+  &-seven {
+    background-color: #fff;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
+    background-color: #eee;
+    margin: 3%;
+
+    .table-list {
+      width: 100%;
+
+      thead {
+        background-color: #ddd;
+
+        tr {
+          th {
+            padding: 10px;
+          }
+        }
+      }
+
+      tfoot {
+        tr {
+          td {
+            input {
+              padding: 10px;
+              border: 1px solid transparent;
+              display: block;
+              outline: none;
+
+              &:focus {
+                border-color: #eee;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .clear_item {
+      color: #f30d0df6;
+      text-align: center;
+    }
+  }
 }

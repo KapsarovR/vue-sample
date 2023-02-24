@@ -18,6 +18,8 @@
 
     <app-section-six />
 
+    <app-section-seven />
+
     <app-footer />
   </div>
 </template>
@@ -31,6 +33,7 @@ import AppSectionThree from "@/components/AppSectionThree.vue";
 import AppSectionFour from "@/components/AppSectionFour.vue";
 import AppSectionFive from "@/components/AppSectionFive.vue";
 import AppSectionSix from "@/components/AppSectionSix.vue";
+import AppSectionSeven from "@/components/AppSectionSeven.vue";
 
 export default {
   name: "App",
@@ -43,6 +46,7 @@ export default {
     AppSectionFour,
     AppSectionFive,
     AppSectionSix,
+    AppSectionSeven,
   },
   data() {
     return {

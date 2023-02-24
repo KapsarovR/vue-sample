@@ -31,7 +31,7 @@
 
 <script>
 import HamburgerMenu from "@/components/HamburgerMenu.vue";
-import AppSidebar from "@/components/AppSidebar.vue";
+import AppSidebar from "@/components/AppSideBar.vue";
 
 export default {
   components: {
