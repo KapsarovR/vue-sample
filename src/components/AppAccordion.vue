@@ -1,5 +1,5 @@
 <template>
-  <div :class="open ? 'faq open' : 'faq'" @click="$emit('toggleOpen', index)">
+  <div :class="open ? 'faq open' : 'faq'" @click="toggleOpen">
     <div class="question">{{ faq.question }}</div>
     <div class="answer">{{ faq.answer }}</div>
   </div>
@@ -9,5 +9,10 @@
 export default {
   name: "AppAccordion",
   props: ["faq", "index", "open"],
+  methods: {
+    toggleOpen() {
+      this.$emit("toggleOpen", this.index);
+    },
+  },
 };
 </script>

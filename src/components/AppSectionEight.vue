@@ -6,10 +6,10 @@
   >
     <div class="accordion">
       <app-accordion
-        v-for="(faq, i) in faqs"
+        v-for="(faq, index) in faqs"
         :faq="faq"
-        :index="i"
-        :key="i"
+        :index="index"
+        :key="index"
         :open="faq.open"
         @toggleOpen="toggleOpen"
       />
@@ -56,9 +56,9 @@ export default {
     };
   },
   methods: {
-    toggleOpen: function (index) {
-      this.faqs = this.faqs.map((faq, i) => {
-        if (index === i) {
+    toggleOpen(index) {
+      this.faqs = this.faqs.map((faq, faqIndex) => {
+        if (index === faqIndex) {
           faq.open = !faq.open;
         } else {
           faq.open = false;
@@ -69,58 +69,3 @@ export default {
   },
 };
 </script>
-
-<style lang="css">
-.accordion {
-  background-color: #a46cd8;
-  padding: 3%;
-}
-
-.faq {
-  display: block;
-  width: 100%;
-  max-width: 768px;
-  margin: 1px auto;
-  padding: 15px;
-  background-color: #fff;
-}
-.faq .question {
-  position: relative;
-  color: #3c3c3c;
-  font-size: 20px;
-  transition: all 0.4s linear;
-}
-.faq .question::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 0px;
-  transform: translateY(-50%) rotate(-90deg);
-  width: 30px;
-  height: 30px;
-  background-image: url(https://cdn-icons-png.flaticon.com/512/566/566092.png);
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-
-  transition: all 0.2s linear;
-}
-.faq.open .question {
-  margin-bottom: 15px;
-}
-.faq.open .question::after {
-  transform: translateY(-50%) rotate(90deg);
-}
-.faq .answer {
-  color: #3c3c3c;
-  font-size: 18px;
-  opacity: 0;
-  max-height: 0px;
-  overflow-y: hidden;
-  transition: all 0.4s ease-out;
-}
-.faq.open .answer {
-  opacity: 1;
-  max-height: 1000px;
-}
-</style>

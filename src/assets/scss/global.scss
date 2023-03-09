@@ -1,9 +1,10 @@
 //general style
 @import "./common/colors";
 @import "./common/layout";
-
+@import "./common/variables";
 
 //commponents
+@import "./parts/accordion";
 @import "./parts/footer";
 @import "./parts/hamburger";
 @import "./parts/header";
