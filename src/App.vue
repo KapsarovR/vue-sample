@@ -19,6 +19,8 @@
     <app-section-six />
 
     <app-section-seven />
+    
+    <app-section-eight />
 
     <app-footer />
   </div>
@@ -34,6 +36,7 @@ import AppSectionFour from "@/components/AppSectionFour.vue";
 import AppSectionFive from "@/components/AppSectionFive.vue";
 import AppSectionSix from "@/components/AppSectionSix.vue";
 import AppSectionSeven from "@/components/AppSectionSeven.vue";
+import AppSectionEight from "@/components/AppSectionEight.vue";
 
 export default {
   name: "App",
@@ -47,6 +50,7 @@ export default {
     AppSectionFive,
     AppSectionSix,
     AppSectionSeven,
+    AppSectionEight
   },
   data() {
     return {
