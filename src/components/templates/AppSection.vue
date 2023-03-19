@@ -1,5 +1,6 @@
 <template>
-    <section :class="className">
+  <section :class="className">
+    <div :class="`${className}__wrapper`">
       <slot></slot>
       <div class="left__wrapper" v-if="showLeftWrapper">
         <slot name="left"></slot>
@@ -7,7 +8,8 @@
       <div class="right__wrapper" v-if="showRightWrapper">
         <slot name="right"></slot>
       </div>
-    </section>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -19,11 +21,11 @@ export default {
     },
     showLeftWrapper: {
       type: Boolean,
-      default: true
+      default: true,
     },
-    showRightWrapper:{
+    showRightWrapper: {
       type: Boolean,
-      default: true
+      default: true,
     },
   },
 };
