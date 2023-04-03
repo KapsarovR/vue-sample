@@ -21,7 +21,7 @@
       color: $black;
       font-size: 25px;
       transition: $linearTransition;
-      
+
       @media (max-width: 425px) {
         font-size: 18px;
       }
@@ -46,7 +46,7 @@
       }
     }
   }
-  
+
   .faq.open {
     .answer {
       opacity: 1;
