@@ -8,14 +8,10 @@
       v-for="(item, index) in inputData"
       :key="index"
       :image="item.image"
-      :description="item.counter"
+      :description="count"
     >
       <template v-slot:button>
-        <app-button @handleClick="like" 
-        :buttonTitle="'Like'" 
-        :index="index"
-          >Like</app-button
-        >
+        <button @click="like(index)">Like</button>
       </template>
     </app-card>
   </app-section>
@@ -24,18 +20,27 @@
 <script>
 import AppCard from "@/components/templates/AppCard.vue";
 import AppSection from "@/components/templates/AppSection.vue";
-import AppButton from "@/components/AppButton.vue";
+
 export default {
   components: {
     AppCard,
     AppSection,
-    AppButton,
   },
   props: ["inputData"],
-
+  // data() {
+  //   return {
+  //     inputData: [],
+  //   };
+  // },
+  computed: {
+    count() {
+      return this.$store.getters.getCount;
+    },
+  },
   methods: {
     like(index) {
-      this.$emit("like", index);
+      this.$store.dispatch("increment", 1);
+      this.inputData[index].count;
     },
   },
 };

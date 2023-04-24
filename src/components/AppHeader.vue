@@ -37,21 +37,6 @@ export default {
   data() {
     return {
       isSidebarOpen: false,
-
-      navigationItems: [
-        {
-          name: "Home",
-          link: "/",
-        },
-        {
-          name: "About",
-          link: "/about",
-        },
-        {
-          name: "Contact",
-          link: "/contact",
-        },
-      ],
     };
   },
   methods: {

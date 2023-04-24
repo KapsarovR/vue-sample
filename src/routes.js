@@ -22,6 +22,5 @@ export default [
   {
     path: "*",
     component: NotFound,
-    name: "home",
   },
 ];

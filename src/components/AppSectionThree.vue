@@ -8,10 +8,10 @@
       v-for="(item, index) in inputData"
       :key="index"
       :title="item.title"
-      :description="'Like' + '' + '' + item.counter"
+      :description="'Like' + '' + '' + count"
     >
       <template v-slot:button>
-        <app-button
+        <!-- <app-button
           @handleClick="dislike"
           :buttonTitle="'DisLike'"
           :index="index"
@@ -20,7 +20,9 @@
         </app-button>
         <app-button @handleClick="like" :buttonTitle="'Like'" :index="index">
           Like
-        </app-button>
+        </app-button> -->
+        <button @click="DisLike">disLike</button>
+        <button @click="Like">Like</button>
       </template>
     </app-card>
   </app-section>
@@ -29,22 +31,29 @@
 <script>
 import AppCard from "@/components/templates/AppCard.vue";
 import AppSection from "@/components/templates/AppSection.vue";
-import AppButton from "@/components/AppButton.vue";
+// import AppButton from "@/components/AppButton.vue";
 export default {
   components: {
     AppCard,
-    AppButton,
+    // AppButton,
     AppSection,
   },
   props: ["inputData"],
 
-  methods: {
-    like(index) {
-      this.$emit("like", index);
+  computed: {
+    count() {
+      return this.$store.getters.getCount;
     },
-
-    dislike(index) {
-      this.$emit("disLike", index);
+    disLike() {
+      return this.$store.getters.getDislikes;
+    },
+  },
+  methods: {
+    Like() {
+      this.$store.dispatch("increment", 1);
+    },
+    DisLike() {
+      this.$store.dispatch("disLikes", 1);
     },
   },
 };

@@ -143,32 +143,32 @@ export default {
       sectionThree: [
         {
           title: "Friday",
-          counter: 0,
+          count: 0,
         },
         {
           title: "Saturday",
-          counter: 0,
+          count: 0,
         },
         {
           title: "Sunday",
-          counter: 0,
+          count: 0,
         },
       ],
       sectionFour: [
         {
           image:
             "https://funkylife.in/wp-content/uploads/2022/08/good-morning-image-funkylife-468.jpg",
-          counter: 0,
+          count: 0,
         },
         {
           image:
             "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-436.jpg",
-          counter: 0,
+          count: 0,
         },
         {
           image:
             "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-435.jpg",
-          counter: 0,
+          count: 0,
         },
       ],
       sectionFive: [
@@ -178,20 +178,20 @@ export default {
       ],
     };
   },
-  methods: {
-    handleLike(index) {
-      this.sectionFour[index].counter += 1;
-    },
+  // methods: {
+  //   handleLike(index) {
+  //     this.sectionFour[index].counter += 1;
+  //   },
 
-    handleLikeThree(index) {
-      this.sectionThree[index].counter += 1;
-    },
-    disLikeThree(index) {
-      if (this.sectionThree[index].counter > 0) {
-        this.sectionThree[index].counter -= 1;
-      }
-    },
-  },
+  //   handleLikeThree(index) {
+  //     this.sectionThree[index].counter += 1;
+  //   },
+  //   disLikeThree(index) {
+  //     if (this.sectionThree[index].counter > 0) {
+  //       this.sectionThree[index].counter -= 1;
+  //     }
+  //   },
+  // },
 };
 </script>
 
