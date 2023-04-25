@@ -8,21 +8,17 @@
       v-for="(item, index) in inputData"
       :key="index"
       :title="item.title"
-      :description="'Like' + '' + '' + count"
+      :description="'Like' + '' + '' + item.count"
     >
       <template v-slot:button>
-        <!-- <app-button
-          @handleClick="dislike"
-          :buttonTitle="'DisLike'"
-          :index="index"
-        >
+        <app-button @handleClick="DisLike(index)" :buttonTitle="'DisLike'">
           DisLike
         </app-button>
-        <app-button @handleClick="like" :buttonTitle="'Like'" :index="index">
+        <app-button @handleClick="Like(index)" :buttonTitle="'Like'">
           Like
-        </app-button> -->
-        <button @click="DisLike">disLike</button>
-        <button @click="Like">Like</button>
+        </app-button>
+        <!-- <button @click="DisLike">disLike</button>
+        <button @click="Like">Like</button> -->
       </template>
     </app-card>
   </app-section>
@@ -31,15 +27,31 @@
 <script>
 import AppCard from "@/components/templates/AppCard.vue";
 import AppSection from "@/components/templates/AppSection.vue";
-// import AppButton from "@/components/AppButton.vue";
+import AppButton from "@/components/AppButton.vue";
 export default {
   components: {
     AppCard,
-    // AppButton,
+    AppButton,
     AppSection,
   },
-  props: ["inputData"],
-
+  data() {
+    return {
+      inputData: [
+        {
+          title: "Friday",
+          count: 0,
+        },
+        {
+          title: "Saturday",
+          count: 0,
+        },
+        {
+          title: "Sunday",
+          count: 0,
+        },
+      ],
+    };
+  },
   computed: {
     count() {
       return this.$store.getters.getCount;
@@ -49,11 +61,13 @@ export default {
     },
   },
   methods: {
-    Like() {
+    Like(index) {
       this.$store.dispatch("increment", 1);
+      this.inputData[index].count += 1;
     },
-    DisLike() {
+    DisLike(index) {
       this.$store.dispatch("disLikes", 1);
+      this.inputData[index].count -= 1;
     },
   },
 };

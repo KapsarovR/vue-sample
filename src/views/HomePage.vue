@@ -6,13 +6,9 @@
 
     <app-section-two :inputData="sectionTwo" />
 
-    <app-section-three
-      :inputData="sectionThree"
-      @like="handleLikeThree"
-      @disLike="disLikeThree"
-    />
+    <app-section-three/>
 
-    <app-section-four :inputData="sectionFour" @like="handleLike" />
+    <app-section-four />
 
     <app-section-five :inputData="sectionFive" />
 
@@ -140,37 +136,37 @@ export default {
             "https://funkylife.in/wp-content/uploads/2022/08/good-morning-image-funkylife-467.jpg",
         },
       ],
-      sectionThree: [
-        {
-          title: "Friday",
-          count: 0,
-        },
-        {
-          title: "Saturday",
-          count: 0,
-        },
-        {
-          title: "Sunday",
-          count: 0,
-        },
-      ],
-      sectionFour: [
-        {
-          image:
-            "https://funkylife.in/wp-content/uploads/2022/08/good-morning-image-funkylife-468.jpg",
-          count: 0,
-        },
-        {
-          image:
-            "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-436.jpg",
-          count: 0,
-        },
-        {
-          image:
-            "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-435.jpg",
-          count: 0,
-        },
-      ],
+      // sectionThree: [
+      //   {
+      //     title: "Friday",
+      //     count: 0,
+      //   },
+      //   {
+      //     title: "Saturday",
+      //     count: 0,
+      //   },
+      //   {
+      //     title: "Sunday",
+      //     count: 0,
+      //   },
+      // ],
+      // sectionFour: [
+      //   {
+      //     image:
+      //       "https://funkylife.in/wp-content/uploads/2022/08/good-morning-image-funkylife-468.jpg",
+      //     count: 0,
+      //   },
+      //   {
+      //     image:
+      //       "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-436.jpg",
+      //     count: 0,
+      //   },
+      //   {
+      //     image:
+      //       "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-435.jpg",
+      //     count: 0,
+      //   },
+      // ],
       sectionFive: [
         {
           message: "Enter your ",
