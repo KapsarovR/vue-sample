@@ -3,36 +3,70 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-const store = new Vuex.Store({
+export default new Vuex.Store({
   state: {
-    count: 0,
+    sectionThree: [
+      {
+        title: "Friday",
+        counter: 0,
+      },
+      {
+        title: "Saturday",
+        counter: 0,
+      },
+      {
+        title: "Sunday",
+        counter: 0,
+      },
+    ],
+    sectionFour: [
+      {
+        image:
+          "https://funkylife.in/wp-content/uploads/2022/08/good-morning-image-funkylife-468.jpg",
+        counter: 0,
+      },
+      {
+        image:
+          "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-436.jpg",
+        counter: 0,
+      },
+      {
+        image:
+          "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-435.jpg",
+        counter: 0,
+      },
+    ],
   },
   mutations: {
-    increment(state, number) {
-      state.count += number;
+    incrementSectionThree(state, index) {
+      state.sectionThree[index].counter++;
     },
-    disLikes(state, number) {
-      if (state.count > 0) {
-        state.count -= number;
+    decrementSectionThree(state, index) {
+      if (state.sectionThree[index].counter > 0) {
+        state.sectionThree[index].counter--;
       }
+    },
+    incrementSectionFour(state, index) {
+      state.sectionFour[index].counter++;
     },
   },
   actions: {
-    increment({ commit }, number) {
-      commit("increment", number);
+    incrementSectionThree({ commit }, index) {
+      commit("incrementSectionThree", index);
     },
-    disLikes({ commit }, number) {
-      commit("disLikes", number);
+    decrementSectionThree({ commit }, index) {
+      commit("decrementSectionThree", index);
+    },
+    incrementSectionFour({ commit }, index) {
+      commit("incrementSectionFour", index);
     },
   },
   getters: {
-    getCount(state) {
-      return state.count;
+    sectionThreeTitles(state) {
+      return state.sectionThree.map(item => item.title);
     },
-    getDislikes(state) {
-      return state.count;
-    },
-  },
+    sectionFourTitles(state) {
+        return state.sectionFour.map(item => item.title);
+      }
+  }
 });
-
-export default store;

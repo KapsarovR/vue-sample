@@ -8,10 +8,14 @@
       v-for="(item, index) in inputData"
       :key="index"
       :image="item.image"
-      :description="item.count"
+      :description="item.counter"
     >
       <template v-slot:button>
-        <app-button @handleClick="like(index)" :buttonTitle="'Like'">
+        <app-button
+          @handleClick="like"
+          :buttonTitle="'Like'"
+          :index="index"
+        >
           Like
         </app-button>
       </template>
@@ -23,43 +27,22 @@
 import AppCard from "@/components/templates/AppCard.vue";
 import AppSection from "@/components/templates/AppSection.vue";
 import AppButton from "@/components/AppButton.vue";
+import { mapState, mapActions } from "vuex";
+
 export default {
   components: {
     AppCard,
-    AppSection,
     AppButton,
+    AppSection,
   },
-  data() {
-    return {
-      inputData: [
-        {
-          image:
-            "https://funkylife.in/wp-content/uploads/2022/08/good-morning-image-funkylife-468.jpg",
-          count: 0,
-        },
-        {
-          image:
-            "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-436.jpg",
-          count: 0,
-        },
-        {
-          image:
-            "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-435.jpg",
-          count: 0,
-        },
-      ],
-    };
-  },
-  // props: ["inputData"],
+  props: ["inputData"],
   computed: {
-    count() {
-      return this.$store.getters.getCount;
-    },
+    ...mapState(["sectionFour"]),
   },
   methods: {
+    ...mapActions(["incrementSectionFour"]),
     like(index) {
-      this.$store.dispatch("increment", 1);
-      this.inputData[index].count += 1;
+      this.incrementSectionFour(index);
     },
   },
 };
