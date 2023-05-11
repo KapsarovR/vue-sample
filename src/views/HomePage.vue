@@ -6,9 +6,9 @@
 
     <app-section-two :inputData="sectionTwo" />
 
-    <app-section-three :inputData="sectionThree"/>
+    <app-section-three :inputData="sectionThree" />
 
-    <app-section-four :inputData="sectionFour"/>
+    <app-section-four :inputData="sectionFour" />
 
     <app-section-five :inputData="sectionFive" />
 
@@ -33,7 +33,7 @@ import AppSectionFive from "@/components/AppSectionFive.vue";
 import AppSectionSix from "@/components/AppSectionSix.vue";
 import AppSectionSeven from "@/components/AppSectionSeven.vue";
 import AppSectionEight from "@/components/AppSectionEight.vue";
-import {mapState, mapMutations , mapGetters} from "vuex";
+import { mapState, mapMutations, mapGetters } from "vuex";
 export default {
   name: "HomePage",
   components: {
@@ -145,10 +145,14 @@ export default {
   },
   computed: {
     ...mapState(["sectionThree", "sectionFour"]),
-    ...mapGetters(["sectionThreeTitles" , "sectionFourTitles"])
+    ...mapGetters(["sectionThreeTitles", "sectionFourTitles"]),
   },
   methods: {
-    ...mapMutations(["incrementSectionThree", "decrementSectionThree", "incrementSectionFour"]),
+    ...mapMutations([
+      "incrementSectionThree",
+      "decrementSectionThree",
+      "incrementSectionFour",
+    ]),
     handleLike(index) {
       this.incrementSectionFour(index);
     },

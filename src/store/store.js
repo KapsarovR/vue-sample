@@ -1,10 +1,18 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import actions from "./actions";
+import mutations from "./mutations";
+import getters from "./getters";
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
+    form: {
+      firstName: "",
+      lastName: "",
+      email: "",
+    },
     sectionThree: [
       {
         title: "Friday",
@@ -36,37 +44,65 @@ export default new Vuex.Store({
         counter: 0,
       },
     ],
+    sectionFive: [
+      {
+        message: "Enter your ",
+      },
+    ],
+
+    message: "",
+
+    showModal: false,
+    selectedIndex: null,
+    newPerson: {
+      firstName: "",
+      lastName: "",
+      edit: false,
+    },
+    id: "ID",
+    firstName: "First Name",
+    lastName: "Last Name",
+    persons: [
+      {
+        id: 1,
+        firstName: "Riste",
+        lastName: "Kapsarov",
+        edit: false,
+      },
+      {
+        id: 2,
+        firstName: "Charles",
+        lastName: "Leclerc",
+        edit: false,
+      },
+      {
+        id: 3,
+        firstName: "Tony",
+        lastName: "Parker",
+        edit: false,
+      },
+      {
+        id: 4,
+        firstName: "Mick",
+        lastName: "Schumacher",
+        edit: false,
+      },
+      {
+        id: 5,
+        firstName: "Shekel",
+        lastName: "O'neal",
+        edit: false,
+      },
+      {
+        id: 6,
+        firstName: "Koby",
+        lastName: "Braynt",
+        edit: false,
+      },
+    ],
   },
-  mutations: {
-    incrementSectionThree(state, index) {
-      state.sectionThree[index].counter++;
-    },
-    decrementSectionThree(state, index) {
-      if (state.sectionThree[index].counter > 0) {
-        state.sectionThree[index].counter--;
-      }
-    },
-    incrementSectionFour(state, index) {
-      state.sectionFour[index].counter++;
-    },
-  },
-  actions: {
-    incrementSectionThree({ commit }, index) {
-      commit("incrementSectionThree", index);
-    },
-    decrementSectionThree({ commit }, index) {
-      commit("decrementSectionThree", index);
-    },
-    incrementSectionFour({ commit }, index) {
-      commit("incrementSectionFour", index);
-    },
-  },
-  getters: {
-    sectionThreeTitles(state) {
-      return state.sectionThree.map(item => item.title);
-    },
-    sectionFourTitles(state) {
-        return state.sectionFour.map(item => item.title);
-      }
-  }
+  actions,
+  mutations,
+  getters,
 });
+export default store;
