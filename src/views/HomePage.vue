@@ -136,15 +136,10 @@ export default {
             "https://funkylife.in/wp-content/uploads/2022/08/good-morning-image-funkylife-467.jpg",
         },
       ],
-      sectionFive: [
-        {
-          message: "Enter your ",
-        },
-      ],
     };
   },
   computed: {
-    ...mapState(["sectionThree", "sectionFour"]),
+    ...mapState(["sectionThree", "sectionFour", "sectionFive"]),
     ...mapGetters(["sectionThreeTitles", "sectionFourTitles"]),
   },
   methods: {
