@@ -6,13 +6,9 @@
 
     <app-section-two :inputData="sectionTwo" />
 
-    <app-section-three
-      :inputData="sectionThree"
-      @like="handleLikeThree"
-      @disLike="disLikeThree"
-    />
+    <app-section-three :inputData="sectionThree" />
 
-    <app-section-four :inputData="sectionFour" @like="handleLike" />
+    <app-section-four :inputData="sectionFour" />
 
     <app-section-five :inputData="sectionFive" />
 
@@ -37,7 +33,7 @@ import AppSectionFive from "@/components/AppSectionFive.vue";
 import AppSectionSix from "@/components/AppSectionSix.vue";
 import AppSectionSeven from "@/components/AppSectionSeven.vue";
 import AppSectionEight from "@/components/AppSectionEight.vue";
-
+import { mapState, mapMutations, mapGetters } from "vuex";
 export default {
   name: "HomePage",
   components: {
@@ -140,56 +136,26 @@ export default {
             "https://funkylife.in/wp-content/uploads/2022/08/good-morning-image-funkylife-467.jpg",
         },
       ],
-      sectionThree: [
-        {
-          title: "Friday",
-          counter: 0,
-        },
-        {
-          title: "Saturday",
-          counter: 0,
-        },
-        {
-          title: "Sunday",
-          counter: 0,
-        },
-      ],
-      sectionFour: [
-        {
-          image:
-            "https://funkylife.in/wp-content/uploads/2022/08/good-morning-image-funkylife-468.jpg",
-          counter: 0,
-        },
-        {
-          image:
-            "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-436.jpg",
-          counter: 0,
-        },
-        {
-          image:
-            "https://funkylife.in/wp-content/uploads/2022/09/good-morning-image-from-funkylife-435.jpg",
-          counter: 0,
-        },
-      ],
-      sectionFive: [
-        {
-          message: "Enter your ",
-        },
-      ],
     };
   },
+  computed: {
+    ...mapState(["sectionThree", "sectionFour", "sectionFive"]),
+    ...mapGetters(["sectionThreeTitles", "sectionFourTitles"]),
+  },
   methods: {
+    ...mapMutations([
+      "incrementSectionThree",
+      "decrementSectionThree",
+      "incrementSectionFour",
+    ]),
     handleLike(index) {
-      this.sectionFour[index].counter += 1;
+      this.incrementSectionFour(index);
     },
-
     handleLikeThree(index) {
-      this.sectionThree[index].counter += 1;
+      this.incrementSectionThree(index);
     },
     disLikeThree(index) {
-      if (this.sectionThree[index].counter > 0) {
-        this.sectionThree[index].counter -= 1;
-      }
+      this.decrementSectionThree(index);
     },
   },
 };

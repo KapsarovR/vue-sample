@@ -11,11 +11,13 @@
       :description="item.counter"
     >
       <template v-slot:button>
-        <app-button @handleClick="like" 
-        :buttonTitle="'Like'" 
-        :index="index"
-          >Like</app-button
+        <app-button
+          @handleClick="like"
+          :buttonTitle="'Like'"
+          :index="index"
         >
+          Like
+        </app-button>
       </template>
     </app-card>
   </app-section>
@@ -25,17 +27,22 @@
 import AppCard from "@/components/templates/AppCard.vue";
 import AppSection from "@/components/templates/AppSection.vue";
 import AppButton from "@/components/AppButton.vue";
+import { mapState, mapActions } from "vuex";
+
 export default {
   components: {
     AppCard,
-    AppSection,
     AppButton,
+    AppSection,
   },
   props: ["inputData"],
-
+  computed: {
+    ...mapState(["sectionFour"]),
+  },
   methods: {
+    ...mapActions(["incrementSectionFour"]),
     like(index) {
-      this.$emit("like", index);
+      this.incrementSectionFour(index);
     },
   },
 };

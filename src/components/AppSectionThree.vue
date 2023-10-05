@@ -30,6 +30,8 @@
 import AppCard from "@/components/templates/AppCard.vue";
 import AppSection from "@/components/templates/AppSection.vue";
 import AppButton from "@/components/AppButton.vue";
+import { mapState, mapActions } from "vuex";
+
 export default {
   components: {
     AppCard,
@@ -37,14 +39,16 @@ export default {
     AppSection,
   },
   props: ["inputData"],
-
+  computed: {
+    ...mapState(["sectionThree"]),
+  },
   methods: {
+    ...mapActions(["incrementSectionThree", "decrementSectionThree"]),
     like(index) {
-      this.$emit("like", index);
+      this.incrementSectionThree(index);
     },
-
     dislike(index) {
-      this.$emit("disLike", index);
+      this.decrementSectionThree(index);
     },
   },
 };

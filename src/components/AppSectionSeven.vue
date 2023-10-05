@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <app-section
     :class="'section-seven'"
     :showLeftWrapper="false"
@@ -168,6 +168,126 @@ export default {
       this.showModal = false;
       this.selectedIndex = null;
     },
+  },
+};
+</script> -->
+<template>
+  <app-section
+    :class="'section-seven'"
+    :showLeftWrapper="false"
+    :showRightWrapper="false"
+  >
+    <div>
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th>{{ id }}</th>
+            <th>{{ firstName }}</th>
+            <th>{{ lastName }}</th>
+            <th>
+              <div v-if="showModal">
+                <span class="clear_item">To delete this item ?</span>
+                <br />
+                <button @click="removePerson">Yes</button>
+                <button @click="closePerson">No</button>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td>
+              <input
+                type="text"
+                v-model="newPerson.firstName"
+                placeholder="First Name"
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                v-model="newPerson.lastName"
+                placeholder="Last Name"
+              />
+            </td>
+            <th>
+              <button class="btn" @click="addPerson">Add</button>
+            </th>
+          </tr>
+        </tfoot>
+        <thead v-for="(person, index) in persons" :key="index">
+          <tr>
+            <th>
+              <span>{{ person.id }}</span>
+            </th>
+            <th>
+              <span v-if="!person.edit">{{ person.firstName }}</span>
+              <input
+                v-else
+                type="text"
+                v-model="person.firstName"
+                placeholder="First Name"
+              />
+            </th>
+            <th>
+              <span v-if="!person.edit">{{ person.lastName }}</span>
+              <input
+                v-else
+                type="text"
+                v-model="person.lastName"
+                placeholder="Last Name"
+              />
+            </th>
+            <th>
+              <button v-if="!person.edit" @click="editPerson(index)">
+                Edit
+              </button>
+              <button v-else @click="savePerson(index)">Save</button>
+              <button @click="verifyDelete(index)">X</button>
+            </th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </app-section>
+</template>
+
+<script>
+import { mapState, mapMutations, mapActions, mapGetters } from "vuex";
+import AppSection from "@/components/templates/AppSection.vue";
+
+export default {
+  components: { AppSection },
+  computed: {
+    ...mapState({
+      showModal: (state) => state.showModal,
+      selectedIndex: (state) => state.selectedIndex,
+      newPerson: (state) => state.newPerson,
+      id: (state) => state.id,
+      firstName: (state) => state.firstName,
+      lastName: (state) => state.lastName,
+      persons: (state) => state.persons,
+    }),
+    ...mapGetters(["getPersons"]),
+  },
+  methods: {
+    ...mapMutations([
+      "editPerson",
+      "savePerson",
+      "addPerson",
+      "verifyDelete",
+      "removePerson",
+      "closePerson",
+    ]),
+    ...mapActions([
+      "editPerson",
+      "savePerson",
+      "addPerson",
+      "verifyDelete",
+      "removePerson",
+      "closePerson",
+    ]),
   },
 };
 </script>
